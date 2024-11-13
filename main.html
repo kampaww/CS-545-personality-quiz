@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answers button {
+            display: block;
+            margin: 10px auto;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        #submit, #replay {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>What's Your Personality Type?</h1>
+    <div id="quiz">
+        <div class="question">
+            <p>1. What's your ideal way to spend a weekend?</p>
+            <div class="answers">
+                <button onclick="answerQuestion(1)">Exploring new places</button>
+                <button onclick="answerQuestion(2)">Reading a book</button>
+                <button onclick="answerQuestion(3)">Hosting a party</button>
+                <button onclick="answerQuestion(4)">Relaxing at home</button>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. How do you handle stress?</p>
+            <div class="answers">
+                <button onclick="answerQuestion(1)">Exercise or stay active</button>
+                <button onclick="answerQuestion(2)">Meditate or reflect quietly</button>
+                <button onclick="answerQuestion(3)">Talk it out with friends</button>
+                <button onclick="answerQuestion(4)">Sleep or rest it off</button>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. What type of movies do you prefer?</p>
+            <div class="answers">
+                <button onclick="answerQuestion(1)">Adventure or action</button>
+                <button onclick="answerQuestion(2)">Documentaries</button>
+                <button onclick="answerQuestion(3)">Romantic comedies</button>
+                <button onclick="answerQuestion(4)">Mystery or thrillers</button>
+            </div>
+        </div>
+
+        <button id="submit" onclick="showResult()">Submit</button>
+        <div id="result"></div>
+        <button id="replay" onclick="resetQuiz()">Play Again</button>
+    </div>
+
+    <script>
+        let scores = [0, 0, 0, 0];
+        let answeredQuestions = 0;
+
+        function answerQuestion(option) {
+            scores[option - 1]++;
+            answeredQuestions++;
+
+            if (answeredQuestions === 3) {
+                document.getElementById("submit").style.display = "block";
+            }
+        }
+
+        function showResult() {
+            let maxScore = Math.max(...scores);
+            let index = scores.indexOf(maxScore);
+            let resultText = "";
+
+            switch (index) {
+                case 0:
+                    resultText = "You're adventurous and love excitement!";
+                    break;
+                case 1:
+                    resultText = "You're thoughtful and enjoy introspection.";
+                    break;
+                case 2:
+                    resultText = "You're social and love being around people.";
+                    break;
+                case 3:
+                    resultText = "You're calm and prefer relaxation.";
+                    break;
+            }
+
+            document.getElementById("result").innerText = resultText;
+            document.getElementById("submit").style.display = "none";
+            document.getElementById("replay").style.display = "block";
+        }
+
+        function resetQuiz() {
+            scores = [0, 0, 0, 0];
+            answeredQuestions = 0;
+            document.getElementById("result").innerText = "";
+            document.getElementById("submit").style.display = "none";
+            document.getElementById("replay").style.display = "none";
+
+            // Remove the 'answered' class from questions to make them replayable
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => {
+                question.classList.remove('answered');
+            });
+        }
+    </script>
+</body>
+</html>
