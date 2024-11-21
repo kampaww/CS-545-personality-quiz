@@ -11,6 +11,22 @@ body {
 .answers label {
     display: block;
     margin: 5px 0;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answers label:hover {
+    background-color: #f0f0f0;
+    border-color: #666;
+    transform: scale(1.02);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.answers input[type="radio"] {
+    margin-right: 10px;
 }
 
 #result {
@@ -25,4 +41,15 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#replay:hover {
+    background-color: #45a049;
 }
