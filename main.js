@@ -10,7 +10,7 @@ const gameData = {
     "1": {
         "text": "What is your favorite kind of weather?",
         "choices": {
-            "Sunny and warm": [2, ["Adventurous"]],
+            "Sunny and warm": [2, ["Adventurous", "Social"]],
             "Rainy and cozy": [2, ["Thoughtful"]],
             "Snowy and cold": [2, ["Social"]],
             "Breezy and calm": [2, ["Calm"]]
