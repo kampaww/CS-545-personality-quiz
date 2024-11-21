@@ -5,139 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personality Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .answers button {
-            display: block;
-            margin: 10px auto;
-        }
-        #result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        #submit, #replay {
-            margin-top: 20px;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <h1>What's Your Personality Type?</h1>
-    <div id="quiz">
+    <form id="quiz" onsubmit="event.preventDefault(); showResult();">
         <div class="question">
-            <p>1. What is your favorite kind of weather? </p>
+            <p>1. What is your favorite kind of weather?</p>
             <div class="answers">
-                <button onclick="answerQuestion(1)">Sunny and warm</button>
-                <button onclick="answerQuestion(2)">Rainy and cozy</button>
-                <button onclick="answerQuestion(3)">Snowy and cold</button>
-                <button onclick="answerQuestion(4)">Breezy and calm</button>
+                <label><input type="radio" name="q1" value="1"> Sunny and warm</label><br>
+                <label><input type="radio" name="q1" value="2"> Rainy and cozy</label><br>
+                <label><input type="radio" name="q1" value="3"> Snowy and cold</label><br>
+                <label><input type="radio" name="q1" value="4"> Breezy and calm</label>
             </div>
         </div>
 
         <div class="question">
             <p>2. What's your dream vacation spot?</p>
             <div class="answers">
-                <button onclick="answerQuestion(1)">A bustling city full of life and lights</button>
-                <button onclick="answerQuestion(2)">A quiet cabin in the woods</button>
-                <button onclick="answerQuestion(3)">A tropical beach paradise</button>
-                <button onclick="answerQuestion(4)">A historical European town</button>
+                <label><input type="radio" name="q2" value="1"> A bustling city full of life and lights</label><br>
+                <label><input type="radio" name="q2" value="2"> A quiet cabin in the woods</label><br>
+                <label><input type="radio" name="q2" value="3"> A tropical beach paradise</label><br>
+                <label><input type="radio" name="q2" value="4"> A historical European town</label>
             </div>
         </div>
 
         <div class="question">
-            <p>3. What’s your go-to coffee shop order? </p>
+            <p>3. What’s your go-to coffee shop order?</p>
             <div class="answers">
-                <button onclick="answerQuestion(1)">Hot chocolate</button>
-                <button onclick="answerQuestion(2)">Iced matcha latte</button>
-                <button onclick="answerQuestion(3)">Cup of freshly brewed coffee</button>
-                <button onclick="answerQuestion(4)">Chocolate chip frappuccino</button>
+                <label><input type="radio" name="q3" value="1"> Hot chocolate</label><br>
+                <label><input type="radio" name="q3" value="2"> Iced matcha latte</label><br>
+                <label><input type="radio" name="q3" value="3"> Cup of freshly brewed coffee</label><br>
+                <label><input type="radio" name="q3" value="4"> Chocolate chip frappuccino</label>
             </div>
         </div>
 
         <div class="question">
-            <p>4. Pick a midnight snack </p>
+            <p>4. Pick a midnight snack</p>
             <div class="answers">
-                <button onclick="answerQuestion(1)">Chips and dip</button>
-                <button onclick="answerQuestion(2)">Cold slice of pizza</button>
-                <button onclick="answerQuestion(3)">Chocolate/candy</button>
-                <button onclick="answerQuestion(4)">Leftovers from dinner</button>
+                <label><input type="radio" name="q4" value="1"> Chips and dip</label><br>
+                <label><input type="radio" name="q4" value="2"> Cold slice of pizza</label><br>
+                <label><input type="radio" name="q4" value="3"> Chocolate/candy</label><br>
+                <label><input type="radio" name="q4" value="4"> Leftovers from dinner</label>
             </div>
         </div>
 
         <div class="question">
-            <p>5. Which movie genre do you gravitate toward? </p>
+            <p>5. Which movie genre do you gravitate toward?</p>
             <div class="answers">
-                <button onclick="answerQuestion(1)">Action and adventure</button>
-                <button onclick="answerQuestion(2)">Rom-com</button>
-                <button onclick="answerQuestion(3)">Horror and thrillers</button>
-                <button onclick="answerQuestion(4)">Sci-fi and fantasy</button>
+                <label><input type="radio" name="q5" value="1"> Action and adventure</label><br>
+                <label><input type="radio" name="q5" value="2"> Rom-com</label><br>
+                <label><input type="radio" name="q5" value="3"> Horror and thrillers</label><br>
+                <label><input type="radio" name="q5" value="4"> Sci-fi and fantasy</label>
             </div>
         </div>
 
-        <button id="submit" onclick="showResult()">Submit</button>
-        <div id="result"></div>
-        <button id="replay" onclick="resetQuiz()">Play Again</button>
-    </div>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+    <button id="replay" onclick="resetQuiz()">Play Again</button>
 
-    <script>
-        let scores = [0, 0, 0, 0];
-        let answeredQuestions = 0;
-
-        function answerQuestion(option) {
-            scores[option - 1]++;
-            answeredQuestions++;
-
-            if (answeredQuestions === 3) {
-                document.getElementById("submit").style.display = "block";
-            }
-        }
-
-        function showResult() {
-            let maxScore = Math.max(...scores);
-            let index = scores.indexOf(maxScore);
-            let resultText = "";
-
-            switch (index) {
-                case 0:
-                    resultText = "You're adventurous and love excitement!";
-                    break;
-                case 1:
-                    resultText = "You're thoughtful and enjoy introspection.";
-                    break;
-                case 2:
-                    resultText = "You're social and love being around people.";
-                    break;
-                case 3:
-                    resultText = "You're calm and prefer relaxation.";
-                    break;
-            }
-
-            document.getElementById("result").innerText = resultText;
-            document.getElementById("submit").style.display = "none";
-            document.getElementById("replay").style.display = "block";
-        }
-
-        function resetQuiz() {
-            scores = [0, 0, 0, 0];
-            answeredQuestions = 0;
-            document.getElementById("result").innerText = "";
-            document.getElementById("submit").style.display = "none";
-            document.getElementById("replay").style.display = "none";
-
-            // Remove the 'answered' class from questions to make them replayable
-            const questions = document.querySelectorAll('.question');
-            questions.forEach(question => {
-                question.classList.remove('answered');
-            });
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
