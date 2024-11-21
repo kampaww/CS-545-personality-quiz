@@ -112,22 +112,43 @@ function revealResult() {
     }
 
     let resultText = "";
+    let recommendedActivities = "";
+    let recommendedAlbums = "";
+
     switch (maxPersonality) {
         case "Adventurous":
             resultText = "You're adventurous and love excitement!";
+            recommendedActivities = "Rock climbing, Skydiving, Travel backpacking";
+            recommendedAlbums = "placeholder";
             break;
         case "Thoughtful":
             resultText = "You're thoughtful and enjoy introspection.";
+            recommendedActivities = "Museum visits, Reading, Meditation";
+            recommendedAlbums = "placeholder";
             break;
         case "Social":
             resultText = "You're social and love being around people.";
+            recommendedActivities = "Group sports, Karaoke nights, Cooking classes";
+            recommendedAlbums = "placeholder";
             break;
         case "Calm":
             resultText = "You're calm and prefer relaxation.";
+            recommendedActivities = "Yoga, Gardening, Nature walks";
+            recommendedAlbums = "placeholder";
             break;
     }
 
-    document.getElementById("result").innerText = resultText;
+    const resultHTML = `
+        <h2>${resultText}</h2>
+        <div class="recommendations">
+            <h3>Recommended Activities:</h3>
+            <p>${recommendedActivities}</p>
+            <h3>Recommended Albums:</h3>
+            <p>${recommendedAlbums}</p>
+        </div>
+    `;
+
+    document.getElementById("result").innerHTML = resultHTML;
     document.getElementById("replay").style.display = "block";
     document.getElementById("quiz").style.display = "none";
 }
