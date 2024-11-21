@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
+    background-color: #faf5e2;
 }
 
 .question {
@@ -10,22 +11,25 @@ body {
 
 .answers label {
     display: block;
-    margin: 5px 0;
-    padding: 10px;
-    border: 2px solid transparent;
-    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .answers label:hover {
-    background-color: #f0f0f0;
-    border-color: #666;
+    background-color: #f8f9fa;
+    border-color: #8DAA9D;
     transform: scale(1.02);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .answers input[type="radio"] {
+    display: none;
     margin-right: 10px;
 }
 
@@ -42,7 +46,7 @@ body {
     margin-right: auto;
     text-align: center;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #34495e;
     color: white;
     border: none;
     border-radius: 5px;
@@ -51,5 +55,28 @@ body {
 }
 
 #replay:hover {
-    background-color: #45a049;
+    background-color: #34495e;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.question p {
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.answers {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #b8dbd9;
+    border-radius: 8px;
 }
