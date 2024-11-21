@@ -1,8 +1,8 @@
 const personalities = {
-    "Adventurous": 0,  // Case 0 in your original code
-    "Thoughtful": 0,   // Case 1 in your original code
-    "Social": 0,       // Case 2 in your original code
-    "Calm": 0         // Case 3 in your original code
+    "Adventurous": 0,  
+    "Thoughtful": 0,   
+    "Social": 0,       
+    "Calm": 0         
 };
 
 // Convert your existing questions into a state machine format
