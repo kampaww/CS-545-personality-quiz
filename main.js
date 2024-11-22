@@ -53,18 +53,32 @@ const gameData = {
         }
     }
 };
-
+const totalQuestions = Object.keys(gameData).length;
+function updateProgressBar(state) {
+    if (state === 0) {
+        document.querySelector('.progress-container').style.display = 'none';
+        return;
+    }
+    
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    const progressPercentage = (state / totalQuestions) * 100;
+    
+    progressFill.style.width = `${progressPercentage}%`;
+    progressText.textContent = `Question ${state}/${totalQuestions}`;
+}
 let currentState = 1;
 
 function renderState(state) {
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
+
+    updateProgressBar(state);
     
     if (state === 0) {
         revealResult();
         return;
     }
-
     question.querySelector('p').textContent = gameData[state].text;
     answers.innerHTML = '';
 
@@ -161,6 +175,7 @@ function resetQuiz() {
     document.getElementById("result").innerText = "";
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
+    document.querySelector('.progress-container').style.display = 'block';
     renderState(currentState);
 }
 
