@@ -265,13 +265,21 @@ function revealResult() {
     const activityRecommendation = getRandomItem(selectedActivities);
     const albumRecommendation = getRandomItem(selectedAlbums);
 
+    let genre = "";
+    for (const [key, albums] of Object.entries(albumGroups)) {
+        if (albums.includes(albumRecommendation)) {
+            genre = key;
+            break;
+        }
+    }
+
     const resultHTML = `
         <h2>Here are your recommendations!</h2>
         <div class="recommendations">
             <h3>Activity:</h3>
             <p>${activityRecommendation}</p>
             <h3>Album:</h3>
-            <p>${albumRecommendation}</p>
+            <p>${albumRecommendation} <br><strong>Genre:</strong> ${genre}</p>
         </div>
     `;
 
@@ -279,6 +287,7 @@ function revealResult() {
     document.getElementById("replay").style.display = "block";
     document.getElementById("quiz").style.display = "none";
 }
+
 
 function resetQuiz() {
     currentState = 1;
