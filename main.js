@@ -15,6 +15,39 @@ const albumGroups = {
     "Dance/Electronic": ["Imaginal Disk - Magdalena Bay", "Brat - Charli XCX", "boy - 2hollis"]
 };
 
+const albumURLs = {
+    "Short n’ Sweet - Sabrina Carpenter": "https://i.scdn.co/image/ab67616d0000b273fd8d7a8d96871e791cb1f626",
+    "Eternal Sunshine - Ariana Grande": "https://upload.wikimedia.org/wikipedia/en/7/7e/Ariana_Grande_-_Eternal_Sunshine.png",
+    "HIT ME HARD AND SOFT - Billie Eilish": "https://upload.wikimedia.org/wikipedia/en/a/aa/Billie_Eilish_-_Hit_Me_Hard_and_Soft.png",
+    "Pretti - Prettifun": "https://i.scdn.co/image/ab67616d0000b27308d5847ce80b812d39c4718e",
+    "Sayso Says - Che": "https://i.scdn.co/image/ab67616d0000b2734b663f097a55ffafd8cab0e0",
+    "Chromakopia - Tyler, The Creator": "https://upload.wikimedia.org/wikipedia/en/5/5b/Chromakopia_CD_cover.jpg",
+    "I LAY MY LIFE DOWN FOR YOU - JPEGMAFIA": "https://i.scdn.co/image/ab67616d0000b273a3314be7ae643fefa32fbe08",
+    "Born in the Wild - Tems": "https://upload.wikimedia.org/wikipedia/en/8/87/Tems_-_Born_in_the_Wild_album_cover.jpg",
+    "Timeless - Kaytranada": "https://i.scdn.co/image/ab67616d0000b2733d1996a2dc962e53e12cb7cb",
+    "Requiem - Keshi": "https://i.scdn.co/image/ab67616d0000b273617997bc09bb7fa23624eff5",
+    "This is How Tomorrow Moves - Beabadoobee": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/Beabadoobee_-_This_Is_How_Tomorrow_Moves.png/220px-Beabadoobee_-_This_Is_How_Tomorrow_Moves.png",
+    "Submarine - The Marias": "https://i.scdn.co/image/ab67616d0000b2734d070fdf58fad8c54c5beb85",
+    "14 minutes - Dominic Fike": "https://i.scdn.co/image/ab67616d0000b273abdde781e79a44868914e661",
+    "God Said No - Omar Apollo": "https://victrola.com/cdn/shop/files/4343430-3185912.jpg?v=1718810683",
+    "Underdressed at the Symphony - Faye Webster": "https://i.scdn.co/image/ab67616d0000b273c598867672580ba77c4e9317",
+    "Older (and Wiser) - Lizzy McAlpine": "https://i.scdn.co/image/ab67616d0000b273fdca70cadefb1099b6dba1b9",
+    "Nocturnes - Chopin": "https://i.scdn.co/image/ab67616d00001e02a749047278122f08e2de2a75",
+    "The Late String Quartets - Beethoven": "https://i.scdn.co/image/ab67616d0000b27389a0e2ea47903bbda69aa29e",
+    "Symphonies Nos 4-6 - Tchaikovsky": "https://i.scdn.co/image/ab67616d00001e0202b21e075874cf0b26291160",
+    "Sogno - Bocelli": "https://i.scdn.co/image/ab67616d0000b273c88c0707cd3ea2f4a51ab6f8",
+    "Deeper Well - Kacey Musgraves": "https://i.scdn.co/image/ab67616d0000b27397e18f502a7043a741824a31",
+    "The Great American Bar Scene - Zach Bryan": "https://i.scdn.co/image/ab67616d0000b273647ad18a07e9e939e399e5a1",
+    "Crazy - LeSerrafim": "https://upload.wikimedia.org/wikipedia/en/3/35/Crazy_%28Le_Sserafim_album%29.png",
+    "DREAM()SCAPE - NCT": "https://upload.wikimedia.org/wikipedia/en/7/72/NCT_Dream_-_Dream%28%29scape.jpg",
+    "Romance: Untold - ENHYPHEN": "https://i.scdn.co/image/ab67616d0000b273653887a83332de0350151f10",
+    "Armageddon - Aespa": "https://upload.wikimedia.org/wikipedia/en/8/8e/Aespa_-_Armageddon.jpg",
+    "Imaginal Disk - Magdalena Bay": "https://i.scdn.co/image/ab67616d0000b2735a2ff617de4e51a9a214b56a",
+    "Brat - Charli XCX": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Charli_XCX_-_Brat_%28album_cover%29.png/1200px-Charli_XCX_-_Brat_%28album_cover%29.png",
+    "boy - 2hollis": "https://media.pitchfork.com/photos/66686f6174b2a7f0a31e0db5/1:1/w_450%2Cc_limit/2hollis%2520-%2520boy.jpeg"
+};
+
+
 const gameData = {
     "1": {
         "text": "What is your favorite kind of weather?",
@@ -247,10 +280,26 @@ function renderState(state) {
     updateProgressBar(state);
 }
 
+// function changeState(newState, selectedCategories) {
+//     selectedCategories.forEach(category => {
+//         if (activityGroups[category]) {
+//             selectedActivities.push(getRandomItem(activityGroups[category]));
+//         }
+//         if (albumGroups[category]) {
+//             selectedAlbums.push(getRandomItem(albumGroups[category]));
+//         }
+//     });
+
+//     currentState = newState;
+//     renderState(currentState);
+// }
+
+let selectedActivityCategories = [];
 function changeState(newState, selectedCategories) {
     selectedCategories.forEach(category => {
         if (activityGroups[category]) {
             selectedActivities.push(getRandomItem(activityGroups[category]));
+            selectedActivityCategories.push(category);  // Track the category of the selected activity
         }
         if (albumGroups[category]) {
             selectedAlbums.push(getRandomItem(albumGroups[category]));
@@ -261,43 +310,100 @@ function changeState(newState, selectedCategories) {
     renderState(currentState);
 }
 
+
 function revealResult() {
     const activityRecommendation = getRandomItem(selectedActivities);
     const albumRecommendation = getRandomItem(selectedAlbums);
+    const activityCategory = getRandomItem(selectedActivityCategories);  // Get the corresponding activity category
 
     let genre = "";
+    let albumImageUrl = "";
+    let artist = "";
+    let activityDescription = "Description not available"; // Default fallback description
+
+    // Determine the genre of the selected album, get the album image URL, and artist
     for (const [key, albums] of Object.entries(albumGroups)) {
         if (albums.includes(albumRecommendation)) {
             genre = key;
+            const albumDetails = albumRecommendation.split(" - ");
+            artist = albumDetails.length > 1 ? albumDetails[1] : "Unknown Artist";
+            albumImageUrl = albumURLs[albumRecommendation];
             break;
         }
     }
 
+    const activityDescriptions = {
+        'Media-based': "Level up your chill with ",
+        'Outdoorsy': "Catch some vibes outdoors with ",
+        'Calm': "Zen out with "
+    };
+    
+    const genreDescriptions = {
+        'Pop': "bops that slap, like ",
+        'Hip-Hop/Rap': "bars that hit different, featuring ",
+        'R&B': "R&B smooth like a TikTok trend, from ",
+        'Indie Pop / Alternative': "indie jams to ghost to your ex to, including ",
+        'Classical': "classical icons that even VSCO girls would snap, like ",
+        'Country': "country feels that give you all the feels, with ",
+        'K-Pop': "K-Pop bangers to stan, featuring ",
+        'Dance/Electronic Music': "EDM drops that make your room a rave, like "
+    };
+    
+    if (activityDescriptions[activityCategory] && genreDescriptions[genre]) {
+        activityDescription = `${activityDescriptions[activityCategory]}${genreDescriptions[genre]}${artist}. It’s a whole vibe!`;
+    }
+
+    if (!albumImageUrl || !genre || !artist) {
+        console.error("Error: Missing data for selected album.");
+        document.getElementById("result").textContent = 'An error occurred. Please try again.';
+        return;
+    }
+
+    // Updated HTML content for the results, including the album image
     const resultHTML = `
-        <h2>Here are your recommendations!</h2>
-        <div class="recommendations">
-            <h3>Activity:</h3>
-            <p>${activityRecommendation}</p>
-            <h3>Album:</h3>
-            <p>${albumRecommendation} <br><strong>Genre:</strong> ${genre}</p>
+    <div id="idCard">
+        <h1>Personality Quiz - ID</h1>
+        <div class="cardContents">
+            <div class="imageSection">
+                <img src="${albumImageUrl}" alt="Album Cover">
+            </div>
+            <div class="infoSection">
+                <h3>Album:</h3>
+                <p><strong>Name:</strong> ${albumRecommendation.split(" - ")[0]}</p>
+                <p><strong>Artist:</strong> ${artist}</p>
+                <p><strong>Genre:</strong> ${genre}</p>
+                <h3>Activity: ${activityRecommendation}</h3>
+                <p>${activityDescription}</p>
+            </div>
         </div>
+    </div>
     `;
 
     document.getElementById("result").innerHTML = resultHTML;
     document.getElementById("replay").style.display = "block";
     document.getElementById("quiz").style.display = "none";
+    document.querySelector('.progress-container').style.display = 'none'; // Hides the progress bar
 }
+
 
 
 function resetQuiz() {
     currentState = 1;
     selectedActivities = [];
     selectedAlbums = [];
+    selectedActivityCategories = []; // Ensure this is reset too if you're tracking activity categories
+
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
+
+    // Reset and show the progress bar
+    document.querySelector('.progress-container').style.display = 'block';
+    updateProgressBar(currentState); // This will reset the progress bar to the start
+
     renderState(currentState);
 }
+
 
 window.onload = () => {
     renderState(currentState);
