@@ -279,6 +279,9 @@ function selectRandomQuestions() {
 }
 
 function renderState(state) {
+    currentState = state; // Update the current state
+    updateProgress(); // Call updateProgress to adjust the progress bar
+
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
     const previousButton = document.getElementById('previous');
@@ -334,8 +337,9 @@ function changeState(newState, selectedCats) {
         }
     });
 
-    currentState = newState;
-    renderState(currentState);
+    stateStack.push(currentState); // Save current state
+    currentState = newState; // Update to the new state
+    renderState(currentState); // Render the new state
 }
 
 function goBack() {
@@ -439,6 +443,7 @@ function goBack() {
 
 // Function to initialize the quiz and set up progress bar
 window.onload = () => {
+    progress = 0;
     selectRandomQuestions(); // Initialize the quiz with a random selection of questions
     renderState(currentState); // Start the quiz
     updateProgress(); // Initialize the progress bar
@@ -453,23 +458,24 @@ let progressText = document.querySelector('.progress-text');
 let numHearts = 15;
 
 function updateProgress() {
-    let filledHearts = Math.round((progress / 100) * numHearts); 
-    let heartWidth = 100 / numHearts; 
-    progressFill.style.width = `${filledHearts * heartWidth}%`;
+    const progressPercentage = Math.round(((currentState - 1) / totalQuestions) * 100); // Calculate progress dynamically
+    const filledHearts = Math.round((progressPercentage / 100) * numHearts);
+    const heartWidth = 100 / numHearts; 
+
+    progressFill.style.width = `${filledHearts * heartWidth}%`; 
 
     if (filledHearts > 0) {
         progressFill.classList.add('filled'); 
     } else {
-        progressFill.classList.remove('filled');  // Ensure the class is removed when no hearts are filled
+        progressFill.classList.remove('filled'); 
     }
 
-    progressText.textContent = `Progress: ${Math.round(progress)}%`;
+    progressText.textContent = `Progress: ${progressPercentage}%`;
 }
 
 function advanceProgress() {
-    if (progress < 100) {
-        progress += 10; 
-        updateProgress();  
+    if (currentState <= totalQuestions) {
+        updateProgress(); // Ensure progress updates dynamically
     }
 }
 
