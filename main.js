@@ -7,13 +7,13 @@ const activityGroups = {
 
 const albumGroups = {
     "Pop": ["Short n’ Sweet - Sabrina Carpenter", "Eternal Sunshine - Ariana Grande", "HIT ME HARD AND SOFT - Billie Eilish"],
-    "Hip-Hop/Rap": ["Pretti - Prettifun", "Sayso Says - Che", "Chromakopia - Tyler, The Creator", "I LAY MY LIFE DOWN FOR YOU - JPEGMAFIA"],
+    "Hip-Hop / Rap": ["Pretti - Prettifun", "Sayso Says - Che", "Chromakopia - Tyler, The Creator", "I LAY MY LIFE DOWN FOR YOU - JPEGMAFIA"],
     "R&B": ["Born in the Wild - Tems", "Timeless - Kaytranada", "Requiem - Keshi"],
     "Indie Pop / Alternative": ["This is How Tomorrow Moves - Beabadoobee", "Submarine - The Marias", "14 minutes - Dominic Fike", "God Said No - Omar Apollo", "Underdressed at the Symphony - Faye Webster", "Older (and Wiser) - Lizzy McAlpine"],
     "Classical": ["Nocturnes - Chopin", "The Late String Quartets - Beethoven", "Symphonies Nos 4-6 - Tchaikovsky", "Sogno - Bocelli"],
     "Country": ["Deeper Well - Kacey Musgraves", "The Great American Bar Scene - Zach Bryan"],
     "K-Pop": ["Crazy - LeSerrafim", "DREAM()SCAPE - NCT", "Romance: Untold - ENHYPHEN", "Armageddon - Aespa"],
-    "Dance/Electronic": ["Imaginal Disk - Magdalena Bay", "Brat - Charli XCX", "boy - 2hollis"]
+    "Dance / Electronic": ["Imaginal Disk - Magdalena Bay", "Brat - Charli XCX", "boy - 2hollis"]
 };
 
 const gameData = {
@@ -29,7 +29,7 @@ const gameData = {
     "2": {
         "text": "If your phone could only send one emoji for the rest of its life, which one would it be?",
         "choices": {
-            "🤣": [3, ["Media-based", "Dance/Electronic"]],
+            "🤣": [3, ["Media-based", "Dance / Electronic"]],
             "🙃": [3, ["Calm", "Indie Pop / Alternative"]],
             "👽": [3, ["Outdoorsy", "Pop"]],
             "💃": [3, ["Calm", "Classical"]]
@@ -41,13 +41,13 @@ const gameData = {
             "Banana taste tests": [4, ["Media-based", "Classical"]],
             "Extreme tree-climbing challenges": [4, ["Calm", "Indie Pop / Alternative"]],
             "Gorilla ASMR": [4, ["Outdoorsy", "Pop"]],
-            "Makeup tutorials": [4, ["Media-based", "Dance/Electronic"]]
+            "Makeup tutorials": [4, ["Media-based", "Dance / Electronic"]]
         }
     },
     "4": {
         "text": "You wake up one day and realize you’ve turned into a chair. How do you spend your day?",
         "choices": {
-            "Testing your cushion durability": [5, ["Outdoorsy", "Hip-Hop/Rap"]],
+            "Testing your cushion durability": [5, ["Outdoorsy", "Hip-Hop / Rap"]],
             "Making new furniture friends": [5, ["Calm", "Indie Pop / Alternative"]],
             "Freaking out about termites": [5, ["Media-based", "Pop"]],
             "Strategically positioning yourself for prime TV viewing": [5, ["Calm", "R&B"]]
@@ -56,7 +56,7 @@ const gameData = {
     "5": {
         "text": "If you could have a superpower with a drawback, which would you choose?",
         "choices": {
-            "Invincibility, but you have to hold your breath": [6, ["Outdoorsy", "Dance/Electronic"]],
+            "Invincibility, but you have to hold your breath": [6, ["Outdoorsy", "Dance / Electronic"]],
             "Super speed, but it makes you nauseous": [6, ["Calm", "R&B"]],
             "Super strength, but you need 16 hours of sleep": [6, ["Media-based", "Indie Pop / Alternative"]],
             "Hearing people’s thoughts, but you can't turn it off": [6, ["Calm", "Classical"]]
@@ -68,7 +68,7 @@ const gameData = {
             "Insist you deserve to be the main dish": [7, ["Outdoorsy", "Pop"]],
             "Secretly form a rebellion against the croutons": [7, ["Media-based", "Classical"]],
             "Make terrible puns about being “dressed to impress”": [7, ["Calm", "R&B"]],
-            "Start rumors about the carrots": [7, ["Outdoorsy", "Hip-Hop/Rap"]]
+            "Start rumors about the carrots": [7, ["Outdoorsy", "Hip-Hop / Rap"]]
         }
     },
     "7": {
@@ -83,7 +83,7 @@ const gameData = {
     "8": {
         "text": "You’ve been cursed to speak in only one type of accent forever. Which do you choose?",
         "choices": {
-            "Pirate": [9, ["Outdoorsy", "Dance/Electronic"]],
+            "Pirate": [9, ["Outdoorsy", "Dance / Electronic"]],
             "Robot": [9, ["Media-based", "Pop"]],
             "Cartoon villain": [9, ["Calm", "Indie Pop / Alternative"]],
             "Shakespearean": [9, ["Calm", "R&B"]]
@@ -101,44 +101,44 @@ const gameData = {
     "10": {
         "text": "If your shadow came to life, what would it do first?",
         "choices": {
-            "Dance battle you for dominance": [11, ["Outdoorsy", "Hip-Hop/Rap"]],
+            "Dance battle you for dominance": [11, ["Outdoorsy", "Hip-Hop / Rap"]],
             "Try to steal your snacks": [11, ["Calm", "R&B"]],
             "Start plotting world domination": [11, ["Media-based", "Pop"]],
-            "Take your place in awkward social situations.": [11, ["Calm", "Dance/Electronic"]]
+            "Take your place in awkward social situations.": [11, ["Calm", "Dance / Electronic"]]
         }
     },
     "11": {
         "text": "If cartoon sound effects started happening to you in real life, what noise would play when you walk into a room?",
         "choices": {
-            "A dramatic “DUN DUN DUNNN!”": [12, ["Outdoorsy", "Country"]],
-            "A cheerful boing-boing spring sound.": [12, ["Media-based", "Classical"]],
-            "A whomp whomp whenever something awkward happens": [12, ["Outdoorsy", "Pop"]],
-            "An over-the-top applause track like you’re the star of a sitcom.": [12, ["Calm", "Indie Pop / Alternative"]]
+            "A dramatic “DUN DUN DUNNN!”": [12, ["Media-based", "Classical"]],
+            "A cheerful boing-boing spring sound.": [12, ["Outdoorsy", "Dance / Electronic"]],
+            "A whomp whomp whenever something awkward happens": [12, ["Calm", "R&B"]],
+            "An over-the-top applause track like you’re the star of a sitcom.": [12, ["Media-based", "Hip-Hop / Rap"]]
         }
     },
     "12": {
         "text": "If you could summon one animal to awkwardly follow you, what would it be?",
         "choices": {
-            "A confused penguin waddling behind you": [13, ["Media-based", "Pop"]],
-            "A tiny horse on roller skates": [13, ["Outdoorsy", "Dance/Electronic"]],
-            "A raccoon with a boombox playing elevator music": [13, ["Calm", "Indie Pop / Alternative"]],
-            "A sarcastic parrot commenting on your life": [13, ["Calm", "R&B"]]
+            "A confused penguin waddling behind you": [13, ["Calm", "R&B"]],
+            "A tiny horse on roller skates": [13, ["Outdoorsy", "Dance / Electronic"]],
+            "A raccoon with a boombox playing elevator music": [13, ["Media-based", "Hip-Hop / Rap"]],
+            "A sarcastic parrot commenting on your life": [13, ["Creative", "Country"]]
         }
     },
     "13": {
         "text": "What’s your dream job… if jobs didn’t need to make sense?",
         "choices": {
-            "Professional cloud floater": [14, ["Calm", "Classical"]],
-            "Chair tester": [14, ["Media-based", "R&B"]],
-            "International spaghetti untangler": [14, ["Calm", "Indie Pop / Alternative"]],
-            "Full-time tambourine champion": [14, ["Outdoorsy", "Hip-Hop/Rap"]]
+            "Professional cloud floater": [14, ["Outdoorsy", "Classical"]],
+            "Chair tester": [14, ["Calm", "R&B"]],
+            "International spaghetti untangler": [14, ["Creative", "K-Pop"]],
+            "Full-time tambourine champion": [14, ["Media-based", "Hip-Hop / Rap"]]
         }
     },
     "14": {
         "text": "What role do you play in your friend group?",
         "choices": {
-            "The Overlord of Schedules": [15, ["Calm", "Classical"]],
-            "The Walking Meme Generator": [15, ["Media-based", "Dance/Electronic"]],
+            "The Overlord of Schedules": [15, ["Creative", "Classical"]],
+            "The Walking Meme Generator": [15, ["Media-based", "Dance / Electronic"]],
             "The Emotional Sponge": [15, ["Calm", "Indie Pop / Alternative"]],
             "The Chaos Gremlin": [15, ["Outdoorsy", "Pop"]]
         }
@@ -146,10 +146,10 @@ const gameData = {
     "15": {
         "text": "You can only eat one color of food for the rest of your life. What do you choose?",
         "choices": {
-            "Green": [16, ["Media-based", "Pop"]],
-            "Orange": [16, ["Calm", "R&B"]],
-            "Black": [16, ["Media-based", "Dance/Electronic"]],
-            "Beige": [16, ["Outdoorsy", "Indie Pop / Alternative"]]
+            "Green": [16, ["Creative", "R&B"]],
+            "Orange": [16, ["Outdoorsy", "Country"]],
+            "Black": [16, ["Media-based", "Dance / Electronic"]],
+            "Beige": [16, ["Calm", "Indie Pop / Alternative"]]
         }
     },
     "16": {
@@ -157,44 +157,44 @@ const gameData = {
         "choices": {
             "A water bottle that’s never empty, but it’s always lukewarm.": [17, ["Media-based", "Pop"]],
             "Self-drying socks that smell like lavender.": [17, ["Calm", "R&B"]],
-            "A pencil that writes perfect comebacks... 30 minutes too late.": [17, ["Calm", "Indie Pop / Alternative"]],
-            "A bottomless backpack that burps randomly.": [17, ["Outdoorsy", "Dance/Electronic"]]
+            "A pencil that writes perfect comebacks... 30 minutes too late.": [17, ["Creative", "Hip-Hop / Rap"]],
+            "A bottomless backpack that burps randomly.": [17, ["Outdoorsy", "Dance / Electronic"]]
         }
     },
     "17": {
         "text": "If you could instantly turn into an object when you’re feeling awkward, what would you pick?",
         "choices": {
-            "A decorative lamp (no one questions a lamp)": [18, ["Outdoorsy", "Hip-Hop/Rap"]],
-            "A houseplant (photosynthesis sounds peaceful)": [18, ["Calm", "Classical"]],
-            "A library book (because no one ever checks them out)": [18, ["Media-based", "Pop"]],
-            "A traffic cone (bold, bright, and in the way)": [18, ["Calm", "Indie Pop / Alternative"]]
+            "A decorative lamp (no one questions a lamp)": [18, ["Media-based", "Hip-Hop / Rap"]],
+            "A houseplant (photosynthesis sounds peaceful)": [18, ["Outdoorsy", "Country"]],
+            "A library book (because no one ever checks them out)": [18, ["Calm", "Indie Pop / Alternative"]],
+            "A traffic cone (bold, bright, and in the way)": [18, ["Outdoorsy", "K-Pop"]]
         }
     },
     "18": {
         "text": "If you could replace your hair with anything, what would you choose?",
         "choices": {
             "Cotton candy": [19, ["Outdoorsy", "Pop"]],
-            "Party streamers": [19, ["Outdoorsy", "Dance/Electronic"]],
-            "Spaghetti noodles": [19, ["Media-based", "Indie Pop / Alternative"]],
-            "A flock of pigeons": [19, ["Calm", "Classical"]]
+            "Party streamers": [19, ["Media-based", "Dance / Electronic"]],
+            "Spaghetti noodles": [19, ["Calm", "Indie Pop / Alternative"]],
+            "A flock of pigeons": [19, ["Creative", "R&B"]]
         }
     },
     "19": {
         "text": "If your wardrobe could only consist of one of these, what would it be?",
         "choices": {
-            "Pajamas that double as a superhero costume": [20, ["Calm", "R&B"]],
-            "Neon Bright Jackets": [20, ["Media-based", "Pop"]],
+            "Pajamas that double as a superhero costume": [20, ["Media-based", "Pop"]],
+            "Neon Bright Jackets": [20, ["Creative", "Dance / Electronic"]],
             "Suits and Blazers, keep it professional": [20, ["Calm", "Classical"]],
-            "An inflatable suit of anything you want": [20, ["Outdoorsy", "Dance/Electronic"]]
+            "An inflatable suit of anything you want": [20, ["Outdoorsy", "Indie Pop / Alternative"]]
         }
     },
     "20": {
         "text": "You have to replace your car horn with a ridiculous sound. What do you pick? ",
         "choices": {
-            "A screaming goat ": [0, ["Outdoorsy", "Pop"]],
-            "A cow mooing in slow motion": [0, ["Calm", "Classical"]],
-            "A dolphin’s excited squeal": [0, ["Media-based", "Dance/Electronic"]],
-            "A chicken clucking angrily ": [0, ["Calm", "Indie Pop / Alternative"]]
+            "A screaming goat ": [0, ["Media-based", "Hip-Hop / Rap"]],
+            "A cow mooing in slow motion": [0, ["Calm", "Country"]],
+            "A dolphin’s excited squeal": [0, ["Creative", "Dance / Electronic"]],
+            "A chicken clucking angrily ": [0, ["Outdoorsy", "K-Pop"]]
         }
     }
 };
@@ -203,7 +203,7 @@ const totalQuestions = 15; // Number of questions to display per quiz
 let selectedCategories = []; // Add this to track selected categories
 let currentState = 1;
 let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
-let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
+let albumScores = { "Pop": 0, "Hip-Hop / Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance / Electronic": 0 };
 let selectedQuestions = []; // Array to store randomly selected question IDs
 let stateStack = [];
 let selectedActivities = [];
@@ -338,7 +338,7 @@ function resetQuiz() {
     currentState = 1;
     selectedCategories = [];
     activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
-    albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
+    albumScores = { "Pop": 0, "Hip-Hop / Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance / Electronic": 0 };
     
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
