@@ -1,7 +1,7 @@
 const activityGroups = {
-    "Media-based": ["Movie Marathon", "Concert", "Game Night"],
-    "Outdoorsy": ["Beach Day", "Picnic", "Road Trip", "Rock Climbing"],
-    "Calm": ["Museum Visit", "Thrift Shopping", "Baking", "Cooking"]
+    "Media-based": ["Indulge in a movie marathon!", "Go to a concert!", "Have a game night!"],
+    "Outdoorsy": ["Beach Day!!!", "Have a picnic!", "Road Trip!!!", "Try rock climbing!"],
+    "Calm": ["Go visit a cool museum!", "Try out some new styles at the thrift store!", "Bake something delicious!", "Try out some new recipes!"]
 };
 
 const albumGroups = {
