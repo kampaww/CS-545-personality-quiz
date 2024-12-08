@@ -437,8 +437,42 @@ function goBack() {
     }
 }
 
-// Add any additional functions you need for UI interactions
+// Function to initialize the quiz and set up progress bar
 window.onload = () => {
     selectRandomQuestions(); // Initialize the quiz with a random selection of questions
     renderState(currentState); // Start the quiz
+    updateProgress(); // Initialize the progress bar
 };
+
+// Progress Bar Functionality
+let progress = 0;
+
+let progressFill = document.querySelector('.progress-fill');
+let progressText = document.querySelector('.progress-text');
+
+let numHearts = 15;
+
+function updateProgress() {
+    let filledHearts = Math.round((progress / 100) * numHearts); 
+    let heartWidth = 100 / numHearts; 
+    progressFill.style.width = `${filledHearts * heartWidth}%`;
+
+    if (filledHearts > 0) {
+        progressFill.classList.add('filled'); 
+    } else {
+        progressFill.classList.remove('filled');  // Ensure the class is removed when no hearts are filled
+    }
+
+    progressText.textContent = `Progress: ${Math.round(progress)}%`;
+}
+
+function advanceProgress() {
+    if (progress < 100) {
+        progress += 10; 
+        updateProgress();  
+    }
+}
+
+updateProgress();  
+
+advanceProgress();
