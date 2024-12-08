@@ -199,12 +199,14 @@ const gameData = {
 };
 
 const totalQuestions = 15; // Number of questions to display per quiz
-let stateStack = []; // Add this to track previous states
 let selectedCategories = []; // Add this to track selected categories
 let currentState = 1;
 let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
 let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
 let selectedQuestions = []; // Array to store randomly selected question IDs
+let stateStack = [];
+let selectedActivities = [];
+let selectedAlbums = [];
 
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -300,6 +302,13 @@ function changeState(newState, selectedCats) {
 
     currentState = newState;
     renderState(currentState);
+}
+
+function goBack() {
+    if (stateStack.length > 0) {
+        currentState = stateStack.pop();  
+        renderState(currentState);
+    }
 }
 
 function revealResult() {
