@@ -1,12 +1,45 @@
+@font-face {
+    font-family: 'VideoGameFont';
+    src: url('fonts/PressStart2P.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 20px;
     background-color: #faf5e2;
 }
+
+html, body {
+    height: 100%;  /* Ensure the body and html take up the full height of the viewport */
+    margin: 0;  /* Remove any default margin */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #faf5e2;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;  /* Use flexbox to align content */
+    justify-content: space-between;  /* Ensure space between content and footer */
+    min-height: 100vh;  /* Ensure the body takes up at least the full height of the viewport */
+}
+
 .progress-container {
     max-width: 600px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
+    position: fixed;  /* Fix the position relative to the viewport */
+    bottom: 0;  /* Place at the very bottom */
+    left: 50%;  /* Center horizontally */
+    transform: translateX(-50%);  /* Offset by 50% to ensure true centering */
+    z-index: 10;  /* Ensure it stays above other content */
 }
 
 .progress-bar {
@@ -30,6 +63,7 @@ body {
     font-size: 0.9em;
     margin-top: 5px;
 }
+
 
 .question {
     margin-bottom: 20px;
@@ -85,6 +119,7 @@ body {
 }
 
 h1 {
+    font-family: 'VideoGameFont', sans-serif;
     color: #2c3e50;
     font-size: 2.5em;
     margin-bottom: 30px;
