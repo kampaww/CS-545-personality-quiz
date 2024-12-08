@@ -331,7 +331,6 @@ function resetQuiz() {
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
-    document.querySelector('.progress-container').style.display = 'block';
     renderState(currentState);
 }
 
