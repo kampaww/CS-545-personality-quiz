@@ -54,60 +54,79 @@ const gameData = {
     }
 };
 const totalQuestions = Object.keys(gameData).length;
-function updateProgressBar(state) {
-    if (state === 0) {
-        document.querySelector('.progress-container').style.display = 'none';
-        return;
-    }
-    
-    const progressFill = document.querySelector('.progress-fill');
-    const progressText = document.querySelector('.progress-text');
-    const progressPercentage = (state / totalQuestions) * 100;
-    
-    progressFill.style.width = `${progressPercentage}%`;
-    progressText.textContent = `Question ${state}/${totalQuestions}`;
-}
+
 let currentState = 1;
+let stateStack = [];
+
+// -----------------
 
 function renderState(state) {
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
+    const previousButton = document.getElementById('previous');
 
-    updateProgressBar(state);
-    
-    if (state === 0) {
-        revealResult();
-        return;
-    }
+    updateProgressBar(state - 1);  
+
+    previousButton.style.display = (state > 1) ? 'block' : 'none';
+
     question.querySelector('p').textContent = gameData[state].text;
     answers.innerHTML = '';
 
-    for (const [choice, info] of Object.entries(gameData[state].choices)) {
+    Object.entries(gameData[state].choices).forEach(([choice, info]) => {
         const label = document.createElement('label');
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = `q${state}`;
         input.value = choice;
-        
+
         label.appendChild(input);
         label.appendChild(document.createTextNode(` ${choice}`));
         label.appendChild(document.createElement('br'));
-        
-        input.onclick = () => changeState(info[0], info[1]);
-        
+
+        input.onclick = () => {
+            info[1].forEach(personality => {
+                personalities[personality]++;
+            });
+            if (info[0] !== 0) {  
+                changeState(info[0]);
+            } else {  
+                updateProgressBar(totalQuestions); 
+                setTimeout(() => {
+                    revealResult();  
+                }, 500);  
+            }
+        };
+
         answers.appendChild(label);
+    });
+}
+
+
+function updateProgressBar(questionNumber) {
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    const totalQuestions = Object.keys(gameData).length;
+
+    const progressPercentage = (questionNumber / totalQuestions) * 100;
+    progressFill.style.width = `${progressPercentage}%`;
+
+    if (questionNumber >= totalQuestions) {
+        progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
+    } else {
+        progressText.textContent = `Question ${questionNumber + 1} of ${totalQuestions}`;
     }
 }
 
-function changeState(newState, selectedPersonalities) {
-    selectedPersonalities.forEach(personality => {
-        personalities[personality]++;
-    });
 
+function changeState(newState) {
+    stateStack.push(currentState);  
     currentState = newState;
-    if (currentState === 0) {
-        revealResult();
-    } else {
+    renderState(currentState);
+}
+
+function goBack() {
+    if (stateStack.length > 0) {
+        currentState = stateStack.pop();  
         renderState(currentState);
     }
 }
@@ -167,8 +186,10 @@ function revealResult() {
     document.getElementById("quiz").style.display = "none";
 }
 
+// --------------
 function resetQuiz() {
     currentState = 1;
+    stateStack = [];  
     for (let personality in personalities) {
         personalities[personality] = 0;
     }
@@ -178,6 +199,8 @@ function resetQuiz() {
     document.querySelector('.progress-container').style.display = 'block';
     renderState(currentState);
 }
+
+// ---------------
 
 window.onload = () => {
     renderState(currentState);
