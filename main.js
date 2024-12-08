@@ -199,11 +199,15 @@ const gameData = {
 };
 
 let currentState = 1;
-let selectedActivities = [];
-let selectedAlbums = [];
+let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
+let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
 
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function getTopCategory(scores) {
+    return Object.keys(scores).reduce((a, b) => (scores[a] > scores[b] ? a : b));
 }
 
 function updateProgressBar(state) {
@@ -249,11 +253,11 @@ function renderState(state) {
 
 function changeState(newState, selectedCategories) {
     selectedCategories.forEach(category => {
-        if (activityGroups[category]) {
-            selectedActivities.push(getRandomItem(activityGroups[category]));
+        if (activityScores[category] !== undefined) {
+            activityScores[category]++;
         }
-        if (albumGroups[category]) {
-            selectedAlbums.push(getRandomItem(albumGroups[category]));
+        if (albumScores[category] !== undefined) {
+            albumScores[category]++;
         }
     });
 
@@ -262,16 +266,11 @@ function changeState(newState, selectedCategories) {
 }
 
 function revealResult() {
-    const activityRecommendation = getRandomItem(selectedActivities);
-    const albumRecommendation = getRandomItem(selectedAlbums);
+    const topActivityGroup = getTopCategory(activityScores);
+    const topAlbumGroup = getTopCategory(albumScores);
 
-    let genre = "";
-    for (const [key, albums] of Object.entries(albumGroups)) {
-        if (albums.includes(albumRecommendation)) {
-            genre = key;
-            break;
-        }
-    }
+    const activityRecommendation = getRandomItem(activityGroups[topActivityGroup]);
+    const albumRecommendation = getRandomItem(albumGroups[topAlbumGroup]);
 
     const resultHTML = `
         <h2>Here are your recommendations!</h2>
@@ -279,7 +278,7 @@ function revealResult() {
             <h3>Activity:</h3>
             <p>${activityRecommendation}</p>
             <h3>Album:</h3>
-            <p>${albumRecommendation} <br><strong>Genre:</strong> ${genre}</p>
+            <p>${albumRecommendation} <br><strong>Genre:</strong> ${topAlbumGroup}</p>
         </div>
     `;
 
@@ -288,11 +287,10 @@ function revealResult() {
     document.getElementById("quiz").style.display = "none";
 }
 
-
 function resetQuiz() {
     currentState = 1;
-    selectedActivities = [];
-    selectedAlbums = [];
+    activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
+    albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
