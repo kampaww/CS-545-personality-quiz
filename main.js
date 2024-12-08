@@ -198,6 +198,8 @@ const gameData = {
     }
 };
 
+const totalQuestions = 15; // Number of questions to display per quiz
+let selectedQuestions = []; // Array to hold the selected questions
 let currentState = 1;
 let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
 let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
@@ -213,22 +215,28 @@ function getTopCategory(scores) {
 function updateProgressBar(state) {
     const progressFill = document.querySelector('.progress-fill');
     const progressText = document.querySelector('.progress-text');
-    const progressPercentage = (state / Object.keys(gameData).length) * 100;
+    const progressPercentage = (state / totalQuestions) * 100;
 
     progressFill.style.width = `${progressPercentage}%`;
-    progressText.textContent = `Question ${state} of ${Object.keys(gameData).length}`;
+    progressText.textContent = `Question ${state} of ${totalQuestions}`;
+}
+
+function selectRandomQuestions() {
+    const keys = Object.keys(gameData);
+    const shuffled = keys.sort(() => Math.random() - 0.5); // Shuffle questions
+    selectedQuestions = shuffled.slice(0, totalQuestions); // Pick the first 15
 }
 
 function renderState(state) {
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
 
-    if (state === 0) {
+    if (state > totalQuestions) {
         revealResult();
         return;
     }
 
-    const questionData = gameData[state];
+    const questionData = gameData[selectedQuestions[state - 1]]; // Access selected question
     question.querySelector('p').textContent = questionData.text;
     answers.innerHTML = '';
 
@@ -243,7 +251,7 @@ function renderState(state) {
         label.appendChild(document.createTextNode(` ${choice}`));
         label.appendChild(document.createElement('br'));
 
-        input.onclick = () => changeState(info[0], info[1]);
+        input.onclick = () => changeState(state + 1, info[1]);
 
         answers.appendChild(label);
     }
@@ -294,9 +302,12 @@ function resetQuiz() {
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
+
+    selectRandomQuestions(); // Select new random questions
     renderState(currentState);
 }
 
 window.onload = () => {
+    selectRandomQuestions(); // Select random questions on page load
     renderState(currentState);
 };
