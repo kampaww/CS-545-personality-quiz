@@ -339,7 +339,6 @@ function resetQuiz() {
     selectedCategories = [];
     activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
     albumScores = { "Pop": 0, "Hip-Hop / Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance / Electronic": 0 };
-    
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
