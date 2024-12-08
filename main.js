@@ -29,88 +29,88 @@ const gameData = {
     "2": {
         "text": "If your phone could only send one emoji for the rest of its life, which one would it be?",
         "choices": {
-            "🤣": [3, ["Media-based", "Dance / Electronic"]],
+            "🤣": [3, ["Outdoorsy", "Hip-Hop / Rap"]],
             "🙃": [3, ["Calm", "Indie Pop / Alternative"]],
-            "👽": [3, ["Outdoorsy", "Pop"]],
-            "💃": [3, ["Calm", "Classical"]]
+            "👽": [3, ["Creative", "Dance / Electronic"]],
+            "💃": [3, ["Media-based", "Pop"]]
         }
     },
     "3": {
         "text": "Your pet gorilla wants to start a YouTube channel. What kind of content do you suggest they make?",
         "choices": {
-            "Banana taste tests": [4, ["Media-based", "Classical"]],
-            "Extreme tree-climbing challenges": [4, ["Calm", "Indie Pop / Alternative"]],
-            "Gorilla ASMR": [4, ["Outdoorsy", "Pop"]],
-            "Makeup tutorials": [4, ["Media-based", "Dance / Electronic"]]
+            "Banana taste tests": [4, ["Creative", "Classical"]],
+            "Extreme tree-climbing challenges": [4, ["Outdoorsy", "Pop"]],
+            "Gorilla ASMR": [4, ["Calm", "R&B"]],
+            "Makeup tutorials": [4, ["Media-based", "Indie Pop / Alternative"]]
         }
     },
     "4": {
         "text": "You wake up one day and realize you’ve turned into a chair. How do you spend your day?",
         "choices": {
-            "Testing your cushion durability": [5, ["Outdoorsy", "Hip-Hop / Rap"]],
-            "Making new furniture friends": [5, ["Calm", "Indie Pop / Alternative"]],
+            "Testing your cushion durability": [5, ["Outdoorsy", "Country"]],
+            "Making new furniture friends": [5, ["Calm", "K-Pop"]],
             "Freaking out about termites": [5, ["Media-based", "Pop"]],
-            "Strategically positioning yourself for prime TV viewing": [5, ["Calm", "R&B"]]
+            "Strategically positioning yourself for prime TV viewing": [5, ["Creative", "Classical"]]
         }
     },
     "5": {
         "text": "If you could have a superpower with a drawback, which would you choose?",
         "choices": {
             "Invincibility, but you have to hold your breath": [6, ["Outdoorsy", "Dance / Electronic"]],
-            "Super speed, but it makes you nauseous": [6, ["Calm", "R&B"]],
-            "Super strength, but you need 16 hours of sleep": [6, ["Media-based", "Indie Pop / Alternative"]],
+            "Super speed, but it makes you nauseous": [6, ["Creative", "R&B"]],
+            "Super strength, but you need 16 hours of sleep": [6, ["Media-based", "Hip-Hop / Rap"]],
             "Hearing people’s thoughts, but you can't turn it off": [6, ["Calm", "Classical"]]
         }
     },
     "6": {
         "text": "If you were a vegetable, what kind of drama would you cause in the salad bowl?",
         "choices": {
-            "Insist you deserve to be the main dish": [7, ["Outdoorsy", "Pop"]],
-            "Secretly form a rebellion against the croutons": [7, ["Media-based", "Classical"]],
-            "Make terrible puns about being “dressed to impress”": [7, ["Calm", "R&B"]],
-            "Start rumors about the carrots": [7, ["Outdoorsy", "Hip-Hop / Rap"]]
+            "Insist you deserve to be the main dish": [7, ["Media-based", "Pop"]],
+            "Secretly form a rebellion against the croutons": [7, ["Outdoorsy", "Classical"]],
+            "Make terrible puns about being “dressed to impress”": [7, ["Creative", "R&B"]],
+            "Start rumors about the carrots": [7, ["Calm", "Country"]]
         }
     },
     "7": {
         "text": "If you had to replace your hands with objects, what would you pick?",
         "choices": {
-            "Spatulas": [8, ["Calm", "Classical"]],
-            "Pool noodles": [8, ["Media-based", "Indie Pop / Alternative"]],
-            "A pair of forks": [8, ["Outdoorsy", "Pop"]],
-            "Glitter cannons": [8, ["Calm", "R&B"]]
+            "Spatulas": [8, ["Calm", "R&B"]],
+            "Pool noodles": [8, ["Media-based", "Hip-Hop / Rap"]],
+            "A pair of forks": [8, ["Outdoorsy", "Indie Pop / Alternative"]],
+            "Glitter cannons": [8, ["Creative", "K-Pop"]]
         }
     },
     "8": {
         "text": "You’ve been cursed to speak in only one type of accent forever. Which do you choose?",
         "choices": {
-            "Pirate": [9, ["Outdoorsy", "Dance / Electronic"]],
-            "Robot": [9, ["Media-based", "Pop"]],
-            "Cartoon villain": [9, ["Calm", "Indie Pop / Alternative"]],
+            "Pirate": [9, ["Outdoorsy", "Country"]],
+            "Robot": [9, ["Media-based", "Dance / Electronic"]],
+            "Cartoon villain": [9, ["Creative", "Indie Pop / Alternative"]],
             "Shakespearean": [9, ["Calm", "R&B"]]
         }
     },
     "9": {
         "text": "If you could travel anywhere, where would you go?",
         "choices": {
-            "The Moon, but it's made entirely of cheese": [10, ["Calm", "Classical"]],
-            "A beach where the sand is marshmallows": [10, ["Outdoorsy", "Pop"]],
-            "A city made entirely of inflatable furniture": [10, ["Media-based", "R&B"]],
-            "A jungle where all the animals are wearing tiny hats": [10, ["Calm", "Indie Pop / Alternative"]]
+            "The Moon, but it's made entirely of cheese": [10, ["Calm", "Pop"]],
+            "A beach where the sand is marshmallows": [10, ["Creative", "Indie Pop / Alternative"]],
+            "A city made entirely of inflatable furniture": [10, ["Media-based", "K-Pop"]],
+            "A jungle where all the animals are wearing tiny hats": [10, ["Outdoorsy", "Hip-Hop / Rap"]]
         }
     },
     "10": {
         "text": "If your shadow came to life, what would it do first?",
         "choices": {
-            "Dance battle you for dominance": [11, ["Outdoorsy", "Hip-Hop / Rap"]],
-            "Try to steal your snacks": [11, ["Calm", "R&B"]],
-            "Start plotting world domination": [11, ["Media-based", "Pop"]],
-            "Take your place in awkward social situations.": [11, ["Calm", "Dance / Electronic"]]
+            "Dance battle you for dominance": [11, ["Media-based", "Hip-Hop / Rap"]],
+            "Try to steal your snacks": [11, ["Outdoorsy", "R&B"]],
+            "Start plotting world domination": [11, ["Creative", "Pop"]],
+            "Take your place in awkward social situations.": [11, ["Calm", "Classical"]]
         }
     },
     "11": {
         "text": "If cartoon sound effects started happening to you in real life, what noise would play when you walk into a room?",
         "choices": {
-            "A dramatic “DUN DUN DUNNN!”": [12, ["Media-based", "Classical"]],
+            "A dramatic “DUN DUN DUNNN!”": [12, ["Creative", "Classical"]],
             "A cheerful boing-boing spring sound.": [12, ["Outdoorsy", "Dance / Electronic"]],
             "A whomp whomp whenever something awkward happens": [12, ["Calm", "R&B"]],
             "An over-the-top applause track like you’re the star of a sitcom.": [12, ["Media-based", "Hip-Hop / Rap"]]
