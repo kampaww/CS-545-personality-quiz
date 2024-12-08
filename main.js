@@ -197,9 +197,13 @@ const gameData = {
         }
     }
 };
-const totalQuestions = Object.keys(gameData).length;
 
+const totalQuestions = 15; // Number of questions to display per quiz
+let selectedCategories = []; // Add this to track selected categories
 let currentState = 1;
+let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
+let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
+let selectedQuestions = []; // Array to store randomly selected question IDs
 let stateStack = [];
 let selectedActivities = [];
 let selectedAlbums = [];
@@ -208,79 +212,91 @@ function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// -----------------
+function getTopCategory(scores) {
+    return Object.keys(scores).reduce((a, b) => (scores[a] > scores[b] ? a : b));
+}
+
+function updateProgressBar(state) {
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    
+    // Ensure state doesn't exceed totalQuestions
+    const currentQuestion = Math.min(state, totalQuestions);
+    const progressPercentage = ((currentQuestion - 1) / totalQuestions) * 100;
+
+    // On last question completion, show 100%
+    if (state > totalQuestions) {
+        progressFill.style.width = '100%';
+        progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
+        return;
+    }
+
+    // Clamp percentage between 0 and 100
+    const clampedPercentage = Math.min(100, Math.max(0, progressPercentage));
+    
+    progressFill.style.width = `${clampedPercentage}%`;
+    progressText.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
+}
+
+function selectRandomQuestions() {
+    const keys = Object.keys(gameData);
+    const shuffled = keys.sort(() => Math.random() - 0.5); // Shuffle questions
+    selectedQuestions = shuffled.slice(0, totalQuestions); // Pick the first 15
+}
 
 function renderState(state) {
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
     const previousButton = document.getElementById('previous');
 
-    updateProgressBar(state - 1);  
-
+    // Show/hide previous button based on state
     previousButton.style.display = (state > 1) ? 'block' : 'none';
 
-    question.querySelector('p').textContent = gameData[state].text;
+    if (state > totalQuestions) {
+        updateProgressBar(totalQuestions + 1); // Update to show 100% completion
+        revealResult();
+        return;
+    }
+
+    updateProgressBar(state);
+
+    const questionData = gameData[selectedQuestions[state - 1]];
+    question.querySelector('p').textContent = questionData.text;
     answers.innerHTML = '';
 
-    Object.entries(gameData[state].choices).forEach(([choice, info]) => {
+    // Update radio button handling
+    for (const [choice, info] of Object.entries(questionData.choices)) {
         const label = document.createElement('label');
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = `q${state}`;
         input.value = choice;
 
+        // Check if this choice was previously selected
+        if (selectedCategories[state - 1] === info[1]) {
+            input.checked = true;
+        }
+
         label.appendChild(input);
         label.appendChild(document.createTextNode(` ${choice}`));
         label.appendChild(document.createElement('br'));
 
         input.onclick = () => {
-            info[1].forEach(category => {
-                if (activityGroups[category]) {
-                    selectedActivities.push(getRandomItem(activityGroups[category]));
-                }
-                if (albumGroups[category]) {
-                    selectedAlbums.push(getRandomItem(albumGroups[category]));
-                }
-            });
-            if (info[0] !== 0) {  
-                changeState(info[0], info[1]);
-            } else {  
-                updateProgressBar(totalQuestions); 
-                setTimeout(() => {
-                    revealResult();  
-                }, 500);  
-            }
+            selectedCategories[state - 1] = info[1]; // Store selection
+            changeState(state + 1, info[1]);
         };
 
         answers.appendChild(label);
-    });
-}
-
-
-function updateProgressBar(questionNumber) {
-    const progressFill = document.querySelector('.progress-fill');
-    const progressText = document.querySelector('.progress-text');
-    const totalQuestions = Object.keys(gameData).length;
-
-    const progressPercentage = (questionNumber / totalQuestions) * 100;
-    progressFill.style.width = `${progressPercentage}%`;
-
-    if (questionNumber >= totalQuestions) {
-        progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
-    } else {
-        progressText.textContent = `Question ${questionNumber + 1} of ${totalQuestions}`;
     }
 }
 
-
-function changeState(newState, selectedCategories) {
-    stateStack.push(currentState);
-    selectedCategories.forEach(category => {
-        if (activityGroups[category]) {
-            selectedActivities.push(getRandomItem(activityGroups[category]));
+function changeState(newState, selectedCats) {
+    selectedCats.forEach(category => {
+        if (activityScores[category] !== undefined) {
+            activityScores[category]++;
         }
-        if (albumGroups[category]) {
-            selectedAlbums.push(getRandomItem(albumGroups[category]));
+        if (albumScores[category] !== undefined) {
+            albumScores[category]++;
         }
     });
 
@@ -296,16 +312,11 @@ function goBack() {
 }
 
 function revealResult() {
-    const activityRecommendation = getRandomItem(selectedActivities);
-    const albumRecommendation = getRandomItem(selectedAlbums);
+    const topActivityGroup = getTopCategory(activityScores);
+    const topAlbumGroup = getTopCategory(albumScores);
 
-    let genre = "";
-    for (const [key, albums] of Object.entries(albumGroups)) {
-        if (albums.includes(albumRecommendation)) {
-            genre = key;
-            break;
-        }
-    }
+    const activityRecommendation = getRandomItem(activityGroups[topActivityGroup]);
+    const albumRecommendation = getRandomItem(albumGroups[topAlbumGroup]);
 
     const resultHTML = `
         <h2>Here are your recommendations!</h2>
@@ -313,7 +324,7 @@ function revealResult() {
             <h3>Activity:</h3>
             <p>${activityRecommendation}</p>
             <h3>Album:</h3>
-            <p>${albumRecommendation} <br><strong>Genre:</strong> ${genre}</p>
+            <p>${albumRecommendation} <br><strong>Genre:</strong> ${topAlbumGroup}</p>
         </div>
     `;
 
@@ -322,20 +333,42 @@ function revealResult() {
     document.getElementById("quiz").style.display = "none";
 }
 
-// --------------
 function resetQuiz() {
     currentState = 1;
-    stateStack = [];
-    selectedActivities = [];
-    selectedAlbums = [];
+    selectedCategories = [];
+    activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
+    albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
+    
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
+
+    selectRandomQuestions();
     renderState(currentState);
 }
 
-// ---------------
+function goBack() {
+    if (currentState > 1) {
+        // Remove the last selection
+        selectedCategories.pop();
+        // Reset scores for the previous question
+        const lastCategories = selectedCategories[currentState - 2];
+        if (lastCategories) {
+            lastCategories.forEach(category => {
+                if (activityScores[category] !== undefined) {
+                    activityScores[category]--;
+                }
+                if (albumScores[category] !== undefined) {
+                    albumScores[category]--;
+                }
+            });
+        }
+        currentState--;
+        renderState(currentState);
+    }
+}
 
 window.onload = () => {
+    selectRandomQuestions(); // Select random questions on page load
     renderState(currentState);
 };
