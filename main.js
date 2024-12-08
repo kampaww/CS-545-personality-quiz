@@ -197,8 +197,10 @@ const gameData = {
         }
     }
 };
+const totalQuestions = Object.keys(gameData).length;
 
 let currentState = 1;
+let stateStack = [];
 let selectedActivities = [];
 let selectedAlbums = [];
 
@@ -206,29 +208,21 @@ function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function updateProgressBar(state) {
-    const progressFill = document.querySelector('.progress-fill');
-    const progressText = document.querySelector('.progress-text');
-    const progressPercentage = (state / Object.keys(gameData).length) * 100;
-
-    progressFill.style.width = `${progressPercentage}%`;
-    progressText.textContent = `Question ${state} of ${Object.keys(gameData).length}`;
-}
+// -----------------
 
 function renderState(state) {
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
+    const previousButton = document.getElementById('previous');
 
-    if (state === 0) {
-        revealResult();
-        return;
-    }
+    updateProgressBar(state - 1);  
 
-    const questionData = gameData[state];
-    question.querySelector('p').textContent = questionData.text;
+    previousButton.style.display = (state > 1) ? 'block' : 'none';
+
+    question.querySelector('p').textContent = gameData[state].text;
     answers.innerHTML = '';
 
-    for (const [choice, info] of Object.entries(questionData.choices)) {
+    Object.entries(gameData[state].choices).forEach(([choice, info]) => {
         const label = document.createElement('label');
         const input = document.createElement('input');
         input.type = 'radio';
@@ -239,15 +233,48 @@ function renderState(state) {
         label.appendChild(document.createTextNode(` ${choice}`));
         label.appendChild(document.createElement('br'));
 
-        input.onclick = () => changeState(info[0], info[1]);
+        input.onclick = () => {
+            info[1].forEach(category => {
+                if (activityGroups[category]) {
+                    selectedActivities.push(getRandomItem(activityGroups[category]));
+                }
+                if (albumGroups[category]) {
+                    selectedAlbums.push(getRandomItem(albumGroups[category]));
+                }
+            });
+            if (info[0] !== 0) {  
+                changeState(info[0], info[1]);
+            } else {  
+                updateProgressBar(totalQuestions); 
+                setTimeout(() => {
+                    revealResult();  
+                }, 500);  
+            }
+        };
 
         answers.appendChild(label);
-    }
-
-    updateProgressBar(state);
+    });
 }
 
+
+function updateProgressBar(questionNumber) {
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+    const totalQuestions = Object.keys(gameData).length;
+
+    const progressPercentage = (questionNumber / totalQuestions) * 100;
+    progressFill.style.width = `${progressPercentage}%`;
+
+    if (questionNumber >= totalQuestions) {
+        progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
+    } else {
+        progressText.textContent = `Question ${questionNumber + 1} of ${totalQuestions}`;
+    }
+}
+
+
 function changeState(newState, selectedCategories) {
+    stateStack.push(currentState);
     selectedCategories.forEach(category => {
         if (activityGroups[category]) {
             selectedActivities.push(getRandomItem(activityGroups[category]));
@@ -259,6 +286,13 @@ function changeState(newState, selectedCategories) {
 
     currentState = newState;
     renderState(currentState);
+}
+
+function goBack() {
+    if (stateStack.length > 0) {
+        currentState = stateStack.pop();  
+        renderState(currentState);
+    }
 }
 
 function revealResult() {
@@ -288,9 +322,10 @@ function revealResult() {
     document.getElementById("quiz").style.display = "none";
 }
 
-
+// --------------
 function resetQuiz() {
     currentState = 1;
+    stateStack = [];
     selectedActivities = [];
     selectedAlbums = [];
     document.getElementById("result").innerHTML = '';
@@ -298,6 +333,8 @@ function resetQuiz() {
     document.getElementById("quiz").style.display = "block";
     renderState(currentState);
 }
+
+// ---------------
 
 window.onload = () => {
     renderState(currentState);
