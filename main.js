@@ -17,183 +17,183 @@ const albumGroups = {
 
 const gameData = {
     "1": {
-        "text": "What is your favorite kind of weather?",
+        "text": "Which would you rather be? ",
         "choices": {
-            "Sunny and warm": [2, ["Outdoorsy", "Pop"]],
-            "Rainy and cozy": [2, ["Calm", "R&B"]],
-            "Snowy and cold": [2, ["Media-based", "Classical"]],
-            "Breezy and calm": [2, ["Calm", "Indie Pop / Alternative"]]
+            "Courageous Pizza": [2, ["Outdoorsy", "Pop"]],
+            "Honest Broccoli": [2, ["Calm", "R&B"]],
+            "Shy Meatloaf": [2, ["Media-based", "Classical"]],
+            "Sleepy Banana": [2, ["Calm", "Indie Pop / Alternative"]]
         }
     },
     "2": {
-        "text": "What’s your dream vacation spot?",
+        "text": "If your phone could only send one emoji for the rest of its life, which one would it be?",
         "choices": {
-            "A bustling city full of life and lights": [3, ["Media-based", "Dance/Electronic"]],
-            "A quiet cabin in the woods": [3, ["Calm", "Indie Pop / Alternative"]],
-            "A tropical beach paradise": [3, ["Outdoorsy", "Pop"]],
-            "A historical European town": [3, ["Calm", "Classical"]]
+            "🤣": [3, ["Media-based", "Dance/Electronic"]],
+            "🙃": [3, ["Calm", "Indie Pop / Alternative"]],
+            "👽": [3, ["Outdoorsy", "Pop"]],
+            "💃": [3, ["Calm", "Classical"]]
         }
     },
     "3": {
-        "text": "What’s your go-to coffee shop order?",
+        "text": "Your pet gorilla wants to start a YouTube channel. What kind of content do you suggest they make?",
         "choices": {
-            "Hot chocolate": [4, ["Media-based", "Classical"]],
-            "Iced matcha latte": [4, ["Calm", "Indie Pop / Alternative"]],
-            "Cup of freshly brewed coffee": [4, ["Outdoorsy", "Pop"]],
-            "Chocolate chip frappuccino": [4, ["Media-based", "Dance/Electronic"]]
+            "Banana taste tests": [4, ["Media-based", "Classical"]],
+            "Extreme tree-climbing challenges": [4, ["Calm", "Indie Pop / Alternative"]],
+            "Gorilla ASMR": [4, ["Outdoorsy", "Pop"]],
+            "Makeup tutorials": [4, ["Media-based", "Dance/Electronic"]]
         }
     },
     "4": {
-        "text": "Pick a midnight snack:",
+        "text": "You wake up one day and realize you’ve turned into a chair. How do you spend your day?",
         "choices": {
-            "Chips and dip": [5, ["Outdoorsy", "Hip-Hop/Rap"]],
-            "Cold slice of pizza": [5, ["Calm", "Indie Pop / Alternative"]],
-            "Chocolate/candy": [5, ["Media-based", "Pop"]],
-            "Leftovers from dinner": [5, ["Calm", "R&B"]]
+            "Testing your cushion durability": [5, ["Outdoorsy", "Hip-Hop/Rap"]],
+            "Making new furniture friends": [5, ["Calm", "Indie Pop / Alternative"]],
+            "Freaking out about termites": [5, ["Media-based", "Pop"]],
+            "Strategically positioning yourself for prime TV viewing": [5, ["Calm", "R&B"]]
         }
     },
     "5": {
-        "text": "Which movie genre do you gravitate toward?",
+        "text": "If you could have a superpower with a drawback, which would you choose?",
         "choices": {
-            "Action and adventure": [6, ["Outdoorsy", "Dance/Electronic"]],
-            "Rom-com": [6, ["Calm", "R&B"]],
-            "Horror and thrillers": [6, ["Media-based", "Indie Pop / Alternative"]],
-            "Sci-fi and fantasy": [6, ["Calm", "Classical"]]
+            "Invincibility, but you have to hold your breath": [6, ["Outdoorsy", "Dance/Electronic"]],
+            "Super speed, but it makes you nauseous": [6, ["Calm", "R&B"]],
+            "Super strength, but you need 16 hours of sleep": [6, ["Media-based", "Indie Pop / Alternative"]],
+            "Hearing people’s thoughts, but you can't turn it off": [6, ["Calm", "Classical"]]
         }
     },
     "6": {
-        "text": "If you could have a superpower, what would it be?",
+        "text": "If you were a vegetable, what kind of drama would you cause in the salad bowl?",
         "choices": {
-            "Flying": [7, ["Outdoorsy", "Pop"]],
-            "Invisibility": [7, ["Media-based", "Classical"]],
-            "Time travel": [7, ["Calm", "R&B"]],
-            "Super strength": [7, ["Outdoorsy", "Hip-Hop/Rap"]]
+            "Insist you deserve to be the main dish": [7, ["Outdoorsy", "Pop"]],
+            "Secretly form a rebellion against the croutons": [7, ["Media-based", "Classical"]],
+            "Make terrible puns about being “dressed to impress”": [7, ["Calm", "R&B"]],
+            "Start rumors about the carrots": [7, ["Outdoorsy", "Hip-Hop/Rap"]]
         }
     },
     "7": {
-        "text": "You’ve just won the lottery – what are you doing with the money?",
+        "text": "If you had to replace your hands with objects, what would you pick?",
         "choices": {
-            "Putting it in stocks": [8, ["Calm", "Classical"]],
-            "Donate a portion to charity": [8, ["Media-based", "Indie Pop / Alternative"]],
-            "Keeping it myself": [8, ["Outdoorsy", "Pop"]],
-            "Treating my family and friends": [8, ["Calm", "R&B"]]
+            "Spatulas": [8, ["Calm", "Classical"]],
+            "Pool noodles": [8, ["Media-based", "Indie Pop / Alternative"]],
+            "A pair of forks": [8, ["Outdoorsy", "Pop"]],
+            "Glitter cannons": [8, ["Calm", "R&B"]]
         }
     },
     "8": {
-        "text": "How do you handle stress?",
+        "text": "You’ve been cursed to speak in only one type of accent forever. Which do you choose?",
         "choices": {
-            "Workout to burn off the energy": [9, ["Outdoorsy", "Dance/Electronic"]],
-            "Talk it out with a friend": [9, ["Media-based", "Pop"]],
-            "Distract yourself with hobbies": [9, ["Calm", "Indie Pop / Alternative"]],
-            "Meditate and reflect": [9, ["Calm", "R&B"]]
+            "Pirate": [9, ["Outdoorsy", "Dance/Electronic"]],
+            "Robot": [9, ["Media-based", "Pop"]],
+            "Cartoon villain": [9, ["Calm", "Indie Pop / Alternative"]],
+            "Shakespearean": [9, ["Calm", "R&B"]]
         }
     },
     "9": {
-        "text": "How would your friends describe you?",
+        "text": "If you could travel anywhere, where would you go?",
         "choices": {
-            "Loyal and dependable": [10, ["Calm", "Classical"]],
-            "Fun and spontaneous": [10, ["Outdoorsy", "Pop"]],
-            "Thoughtful and wise": [10, ["Media-based", "R&B"]],
-            "Creative and unique": [10, ["Calm", "Indie Pop / Alternative"]]
+            "The Moon, but it's made entirely of cheese": [10, ["Calm", "Classical"]],
+            "A beach where the sand is marshmallows": [10, ["Outdoorsy", "Pop"]],
+            "A city made entirely of inflatable furniture": [10, ["Media-based", "R&B"]],
+            "A jungle where all the animals are wearing tiny hats": [10, ["Calm", "Indie Pop / Alternative"]]
         }
     },
     "10": {
-        "text": "How would you describe your dream morning?",
+        "text": "If your shadow came to life, what would it do first?",
         "choices": {
-            "Waking up early, exercising, and journaling": [11, ["Outdoorsy", "Hip-Hop/Rap"]],
-            "Sleeping in and having a big breakfast": [11, ["Calm", "R&B"]],
-            "Grabbing coffee and heading out the door": [11, ["Media-based", "Pop"]],
-            "Getting ready to spend the day with your friends": [11, ["Calm", "Dance/Electronic"]]
+            "Dance battle you for dominance": [11, ["Outdoorsy", "Hip-Hop/Rap"]],
+            "Try to steal your snacks": [11, ["Calm", "R&B"]],
+            "Start plotting world domination": [11, ["Media-based", "Pop"]],
+            "Take your place in awkward social situations.": [11, ["Calm", "Dance/Electronic"]]
         }
     },
     "11": {
-        "text": "What’s your ideal pet?",
+        "text": "If cartoon sound effects started happening to you in real life, what noise would play when you walk into a room?",
         "choices": {
-            "A loyal dog": [12, ["Outdoorsy", "Country"]],
-            "A mysterious and quiet cat": [12, ["Media-based", "Classical"]],
-            "An exotic animal like a parrot": [12, ["Outdoorsy", "Pop"]],
-            "No pets": [12, ["Calm", "Indie Pop / Alternative"]]
+            "A dramatic “DUN DUN DUNNN!”": [12, ["Outdoorsy", "Country"]],
+            "A cheerful boing-boing spring sound.": [12, ["Media-based", "Classical"]],
+            "A whomp whomp whenever something awkward happens": [12, ["Outdoorsy", "Pop"]],
+            "An over-the-top applause track like you’re the star of a sitcom.": [12, ["Calm", "Indie Pop / Alternative"]]
         }
     },
     "12": {
-        "text": "How do you meet new people?",
+        "text": "If you could summon one animal to awkwardly follow you, what would it be?",
         "choices": {
-            "Through mutual friends": [13, ["Media-based", "Pop"]],
-            "At events or clubs": [13, ["Outdoorsy", "Dance/Electronic"]],
-            "Online": [13, ["Calm", "Indie Pop / Alternative"]],
-            "Random interactions": [13, ["Calm", "R&B"]]
+            "A confused penguin waddling behind you": [13, ["Media-based", "Pop"]],
+            "A tiny horse on roller skates": [13, ["Outdoorsy", "Dance/Electronic"]],
+            "A raccoon with a boombox playing elevator music": [13, ["Calm", "Indie Pop / Alternative"]],
+            "A sarcastic parrot commenting on your life": [13, ["Calm", "R&B"]]
         }
     },
     "13": {
-        "text": "What’s your love language?",
+        "text": "What’s your dream job… if jobs didn’t need to make sense?",
         "choices": {
-            "Words of affirmation": [14, ["Calm", "Classical"]],
-            "Acts of service": [14, ["Media-based", "R&B"]],
-            "Quality time": [14, ["Calm", "Indie Pop / Alternative"]],
-            "Physical touch": [14, ["Outdoorsy", "Hip-Hop/Rap"]]
+            "Professional cloud floater": [14, ["Calm", "Classical"]],
+            "Chair tester": [14, ["Media-based", "R&B"]],
+            "International spaghetti untangler": [14, ["Calm", "Indie Pop / Alternative"]],
+            "Full-time tambourine champion": [14, ["Outdoorsy", "Hip-Hop/Rap"]]
         }
     },
     "14": {
         "text": "What role do you play in your friend group?",
         "choices": {
-            "The planner": [15, ["Calm", "Classical"]],
-            "The comic relief": [15, ["Media-based", "Dance/Electronic"]],
-            "The advice-giver": [15, ["Calm", "Indie Pop / Alternative"]],
-            "The instigator": [15, ["Outdoorsy", "Pop"]]
+            "The Overlord of Schedules": [15, ["Calm", "Classical"]],
+            "The Walking Meme Generator": [15, ["Media-based", "Dance/Electronic"]],
+            "The Emotional Sponge": [15, ["Calm", "Indie Pop / Alternative"]],
+            "The Chaos Gremlin": [15, ["Outdoorsy", "Pop"]]
         }
     },
     "15": {
-        "text": "What’s your guilty pleasure?",
+        "text": "You can only eat one color of food for the rest of your life. What do you choose?",
         "choices": {
-            "Reality TV shows": [16, ["Media-based", "Pop"]],
-            "Eating dessert before dinner": [16, ["Calm", "R&B"]],
-            "Binge-playing a video game": [16, ["Media-based", "Dance/Electronic"]],
-            "Singing loudly when no one’s around": [16, ["Outdoorsy", "Indie Pop / Alternative"]]
+            "Green": [16, ["Media-based", "Pop"]],
+            "Orange": [16, ["Calm", "R&B"]],
+            "Black": [16, ["Media-based", "Dance/Electronic"]],
+            "Beige": [16, ["Outdoorsy", "Indie Pop / Alternative"]]
         }
     },
     "16": {
-        "text": "What’s your go-to way to treat yourself?",
+        "text": "Which of these magical items would you rather have?",
         "choices": {
-            "Buying something on your wishlist": [17, ["Media-based", "Pop"]],
-            "Splurging on a fancy meal": [17, ["Calm", "R&B"]],
-            "Spending time doing absolutely nothing": [17, ["Calm", "Indie Pop / Alternative"]],
-            "Taking a spontaneous trip": [17, ["Outdoorsy", "Dance/Electronic"]]
+            "A water bottle that’s never empty, but it’s always lukewarm.": [17, ["Media-based", "Pop"]],
+            "Self-drying socks that smell like lavender.": [17, ["Calm", "R&B"]],
+            "A pencil that writes perfect comebacks... 30 minutes too late.": [17, ["Calm", "Indie Pop / Alternative"]],
+            "A bottomless backpack that burps randomly.": [17, ["Outdoorsy", "Dance/Electronic"]]
         }
     },
     "17": {
-        "text": "If you were a color, what would you be?",
+        "text": "If you could instantly turn into an object when you’re feeling awkward, what would you pick?",
         "choices": {
-            "Bold and fiery red": [18, ["Outdoorsy", "Hip-Hop/Rap"]],
-            "Calm and soothing blue": [18, ["Calm", "Classical"]],
-            "Bright and cheerful yellow": [18, ["Media-based", "Pop"]],
-            "Mysterious and deep purple": [18, ["Calm", "Indie Pop / Alternative"]]
+            "A decorative lamp (no one questions a lamp)": [18, ["Outdoorsy", "Hip-Hop/Rap"]],
+            "A houseplant (photosynthesis sounds peaceful)": [18, ["Calm", "Classical"]],
+            "A library book (because no one ever checks them out)": [18, ["Media-based", "Pop"]],
+            "A traffic cone (bold, bright, and in the way)": [18, ["Calm", "Indie Pop / Alternative"]]
         }
     },
     "18": {
-        "text": "What’s your favorite season?",
+        "text": "If you could replace your hair with anything, what would you choose?",
         "choices": {
-            "Spring": [19, ["Outdoorsy", "Pop"]],
-            "Summer": [19, ["Outdoorsy", "Dance/Electronic"]],
-            "Fall/Autumn": [19, ["Media-based", "Indie Pop / Alternative"]],
-            "Winter": [19, ["Calm", "Classical"]]
+            "Cotton candy": [19, ["Outdoorsy", "Pop"]],
+            "Party streamers": [19, ["Outdoorsy", "Dance/Electronic"]],
+            "Spaghetti noodles": [19, ["Media-based", "Indie Pop / Alternative"]],
+            "A flock of pigeons": [19, ["Calm", "Classical"]]
         }
     },
     "19": {
-        "text": "Go-to place to study?",
+        "text": "If your wardrobe could only consist of one of these, what would it be?",
         "choices": {
-            "In my room": [20, ["Calm", "R&B"]],
-            "At a cafe": [20, ["Media-based", "Pop"]],
-            "In the library": [20, ["Calm", "Classical"]],
-            "Friend’s place": [20, ["Outdoorsy", "Dance/Electronic"]]
+            "Pajamas that double as a superhero costume": [20, ["Calm", "R&B"]],
+            "Neon Bright Jackets": [20, ["Media-based", "Pop"]],
+            "Suits and Blazers, keep it professional": [20, ["Calm", "Classical"]],
+            "An inflatable suit of anything you want": [20, ["Outdoorsy", "Dance/Electronic"]]
         }
     },
     "20": {
-        "text": "What’s your dream travel companion like?",
+        "text": "You have to replace your car horn with a ridiculous sound. What do you pick? ",
         "choices": {
-            "Adventurous and spontaneous": [0, ["Outdoorsy", "Pop"]],
-            "Organized and detail-oriented": [0, ["Calm", "Classical"]],
-            "Funny and entertaining": [0, ["Media-based", "Dance/Electronic"]],
-            "Quiet and easygoing": [0, ["Calm", "Indie Pop / Alternative"]]
+            "A screaming goat ": [0, ["Outdoorsy", "Pop"]],
+            "A cow mooing in slow motion": [0, ["Calm", "Classical"]],
+            "A dolphin’s excited squeal": [0, ["Media-based", "Dance/Electronic"]],
+            "A chicken clucking angrily ": [0, ["Calm", "Indie Pop / Alternative"]]
         }
     }
 };
