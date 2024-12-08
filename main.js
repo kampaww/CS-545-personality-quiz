@@ -199,10 +199,12 @@ const gameData = {
 };
 
 const totalQuestions = 15; // Number of questions to display per quiz
-let selectedQuestions = []; // Array to hold the selected questions
+let stateStack = []; // Add this to track previous states
+let selectedCategories = []; // Add this to track selected categories
 let currentState = 1;
 let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
 let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
+let selectedQuestions = []; // Array to store randomly selected question IDs
 
 function getRandomItem(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -215,10 +217,23 @@ function getTopCategory(scores) {
 function updateProgressBar(state) {
     const progressFill = document.querySelector('.progress-fill');
     const progressText = document.querySelector('.progress-text');
-    const progressPercentage = (state / totalQuestions) * 100;
+    
+    // Ensure state doesn't exceed totalQuestions
+    const currentQuestion = Math.min(state, totalQuestions);
+    const progressPercentage = ((currentQuestion - 1) / totalQuestions) * 100;
 
-    progressFill.style.width = `${progressPercentage}%`;
-    progressText.textContent = `Question ${state} of ${totalQuestions}`;
+    // On last question completion, show 100%
+    if (state > totalQuestions) {
+        progressFill.style.width = '100%';
+        progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
+        return;
+    }
+
+    // Clamp percentage between 0 and 100
+    const clampedPercentage = Math.min(100, Math.max(0, progressPercentage));
+    
+    progressFill.style.width = `${clampedPercentage}%`;
+    progressText.textContent = `Question ${currentQuestion} of ${totalQuestions}`;
 }
 
 function selectRandomQuestions() {
@@ -230,16 +245,24 @@ function selectRandomQuestions() {
 function renderState(state) {
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
+    const previousButton = document.getElementById('previous');
+
+    // Show/hide previous button based on state
+    previousButton.style.display = (state > 1) ? 'block' : 'none';
 
     if (state > totalQuestions) {
+        updateProgressBar(totalQuestions + 1); // Update to show 100% completion
         revealResult();
         return;
     }
 
-    const questionData = gameData[selectedQuestions[state - 1]]; // Access selected question
+    updateProgressBar(state);
+
+    const questionData = gameData[selectedQuestions[state - 1]];
     question.querySelector('p').textContent = questionData.text;
     answers.innerHTML = '';
 
+    // Update radio button handling
     for (const [choice, info] of Object.entries(questionData.choices)) {
         const label = document.createElement('label');
         const input = document.createElement('input');
@@ -247,20 +270,26 @@ function renderState(state) {
         input.name = `q${state}`;
         input.value = choice;
 
+        // Check if this choice was previously selected
+        if (selectedCategories[state - 1] === info[1]) {
+            input.checked = true;
+        }
+
         label.appendChild(input);
         label.appendChild(document.createTextNode(` ${choice}`));
         label.appendChild(document.createElement('br'));
 
-        input.onclick = () => changeState(state + 1, info[1]);
+        input.onclick = () => {
+            selectedCategories[state - 1] = info[1]; // Store selection
+            changeState(state + 1, info[1]);
+        };
 
         answers.appendChild(label);
     }
-
-    updateProgressBar(state);
 }
 
-function changeState(newState, selectedCategories) {
-    selectedCategories.forEach(category => {
+function changeState(newState, selectedCats) {
+    selectedCats.forEach(category => {
         if (activityScores[category] !== undefined) {
             activityScores[category]++;
         }
@@ -297,14 +326,37 @@ function revealResult() {
 
 function resetQuiz() {
     currentState = 1;
+    selectedCategories = [];
     activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
     albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
+    
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
 
-    selectRandomQuestions(); // Select new random questions
+    selectRandomQuestions();
     renderState(currentState);
+}
+
+function goBack() {
+    if (currentState > 1) {
+        // Remove the last selection
+        selectedCategories.pop();
+        // Reset scores for the previous question
+        const lastCategories = selectedCategories[currentState - 2];
+        if (lastCategories) {
+            lastCategories.forEach(category => {
+                if (activityScores[category] !== undefined) {
+                    activityScores[category]--;
+                }
+                if (albumScores[category] !== undefined) {
+                    albumScores[category]--;
+                }
+            });
+        }
+        currentState--;
+        renderState(currentState);
+    }
 }
 
 window.onload = () => {
