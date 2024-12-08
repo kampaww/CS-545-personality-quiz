@@ -1,7 +1,8 @@
 const activityGroups = {
-    "Media-based": ["Indulge in a movie marathon!", "Go to a concert!", "Have a game night!"],
-    "Outdoorsy": ["Beach Day!!!", "Have a picnic!", "Road Trip!!!", "Try rock climbing!"],
-    "Calm": ["Go visit a cool museum!", "Try out some new styles at the thrift store!", "Bake something delicious!", "Try out some new recipes!"]
+    "Media-based": ["Indulge in a movie marathon!", "Go to a concert!", "Have a game night!", "Binge that show you've been putting off"],
+    "Outdoorsy": ["Beach Day!!!", "Have a picnic!", "Road Trip!!!", "Go on a nature hike!"],
+    "Calm": ["Go visit a cool museum!", "Try out some new styles at the thrift store!", "Try yoga or meditation!"],
+    "Creative": ["Write a short story or a poem!", "Start a DIY home decor project!", "Try drawing or painting something you see everyday!", "Bake something delicious!", "Try out some new recipes!"]
 };
 
 const albumGroups = {
@@ -201,7 +202,7 @@ const gameData = {
 const totalQuestions = 15; // Number of questions to display per quiz
 let selectedCategories = []; // Add this to track selected categories
 let currentState = 1;
-let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
+let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
 let albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
 let selectedQuestions = []; // Array to store randomly selected question IDs
 let stateStack = [];
@@ -336,7 +337,7 @@ function revealResult() {
 function resetQuiz() {
     currentState = 1;
     selectedCategories = [];
-    activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0 };
+    activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
     albumScores = { "Pop": 0, "Hip-Hop/Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance/Electronic": 0 };
     
     document.getElementById("result").innerHTML = '';
