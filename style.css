@@ -9,14 +9,18 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     background-color: #faf5e2;
+    height: 100vh;
+    max-height: 100vh;
 }
 
 
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 body {
@@ -36,19 +40,19 @@ body {
 
 .progress-container {
     max-width: 600px;
-    margin: 0 auto 30px;
+    margin: 0 auto 15px;
     position: relative;
     width: 600px;
 }
 
 .progress-bar {
     width: 100%;
-    height: 30px;
+    height: 50px;
     overflow: hidden;
     margin-bottom: 20px;
     background-image: url('images/emptyHeart.png');
     background-repeat: repeat-x;
-    background-size: 25px 25px;
+    background-size: 40px 40px;
 }
 
 .progress-text {
@@ -65,7 +69,7 @@ body {
     width: 0%; /* Initial width set to 0% */
     background-image: url('images/emptyHeart.png');
     background-repeat: repeat-x;
-    background-size: 25px 25px;
+    background-size: 40px 40px;
     transition: width 0.3s ease;
 }
 
@@ -77,29 +81,30 @@ body {
 
 
 .question {
-    margin-bottom: 10px; /* Space between questions */
-    padding: 10px; /* Padding inside the question box */
-    background-color: rgba(10, 54, 76, 0.8); /* Dark background with 80% opacity */
-    border: 4px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
-    font-family: 'VideoGameFont', sans-serif; /* Use a pixelated font */
-    font-size: clamp(0.6em, 1.5vw, 1.2em); /* Responsive font size */
-    color: #ffffff; /* Bright white text */
-    text-align: center; /* Center align the text */
-    letter-spacing: 2px; /* Add spacing between letters for a pixel effect */
-    text-transform: uppercase; /* Capitalized letters for emphasis */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
-    border-radius: 5px; /* Subtle rounded corners, can be removed */
-    word-wrap: break-word; /* Ensure long words wrap to the next line */
-    position: relative; /* For pseudo-elements */
-    max-width: 80%; /* Reduce the width of the background */
-    margin: 20px auto; /* Center the box horizontally */
+    max-width: 70%; /* Match answers width */
+    margin: 10px auto;
+    padding: 8px;
+    background-color: rgba(10, 54, 76, 0.8);
+    border: 4px solid #ffcc00;
+    font-family: 'VideoGameFont', sans-serif;
+    font-size: clamp(0.5em, 1.2vw, 1em);
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    word-wrap: break-word;
+    position: relative;
+    height: auto;
+    min-height: 40px; /* Added fixed minimum height */
 }
 
 
 .answers {
     max-width: 70%;
-    margin: 10px auto;
-    padding: 10px;
+    margin: 5px auto;
+    padding: 5px;
     background-color: #628a22; /* Darker background for a retro look */
     border-radius: 0; /* No rounded corners */
     border: 3px solid #ffffff; /* Thick white border for a pixel style */
@@ -112,8 +117,8 @@ body {
 
 .answers label {
     display: block;
-    margin: 5px 0;
-    padding: clamp(5px, 1.5vw, 10px); /* Responsive padding */
+    margin: 3px 0;
+    padding: clamp(3px, 1vw, 8px); /* Responsive padding */
     border: 2px solid #e0e0e0;
     border-radius: 0; /* No rounded corners */
     cursor: pointer;
@@ -127,7 +132,7 @@ body {
     text-align: center; /* Center the text horizontally */
     line-height: 1.8; /* Remove fixed line height for natural spacing */
     word-wrap: break-word; /* Ensure long words wrap properly */
-    min-height: 30px; /* Minimum height for visual consistency */
+    min-height: 25px; /* Minimum height for visual consistency */
 }
 
 .answers label:hover {
@@ -165,11 +170,12 @@ body {
 
 h1 {
     font-family: 'VideoGameFont', sans-serif;
-    color: #2c3e50;
-    font-size: clamp(1em, 2.5vw, 2em); /* Responsive font size */
-    margin-bottom: 10px;
+    color: green;
+    font-size: clamp(0.8em, 2vw, 1.5em);
+    margin: 20px 0 3px 0; /* Increased top margin, decreased bottom margin */
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-align: center; /* Changed from right to center */
 }
 
 #idCard {
@@ -231,14 +237,6 @@ h1 {
     line-height: 1.4;
 }
 
-h1 {
-    font-size: 1.5em;
-    color: #2c3e50;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: left; /* Aligns the title text to the left */
-}
 
 /* Add media queries for smaller screens */
 @media screen and (max-width: 768px) {
@@ -247,11 +245,7 @@ h1 {
         width: auto;
     }
 
-    .question {
-        max-width: 90%;
-    }
-
-    .answers {
+    .question, .answers {
         max-width: 90%;
     }
 }
