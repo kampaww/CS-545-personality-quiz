@@ -101,7 +101,7 @@ body {
 
 
 .answers {
-    max-width: 50%;
+    max-width: 70%;
     margin: 20px auto;
     padding: 10px;
     background-color: #628a22; /* Darker background for a retro look */
@@ -129,7 +129,7 @@ body {
     font-size: 1.15em; /* Size for readability */
     box-shadow: 0 4px 8px rgba(56, 102, 65, 1); /* Shadow for retro depth */
     text-align: center; /* Center the text horizontally */
-    line-height: normal; /* Remove fixed line height for natural spacing */
+    line-height: 1.8; /* Remove fixed line height for natural spacing */
     word-wrap: break-word; /* Ensure long words wrap properly */
     min-height: 40px; /* Minimum height for visual consistency */
 }
