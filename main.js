@@ -357,14 +357,14 @@ const activityDescriptions = {
 };
 
 const genreDescriptions = {
-    'Pop': "pop bops that slap, featuring ",
-    'Hip-Hop / Rap': "hip-hop beats that hit different, with ",
-    'R&B': "smooth R&B that's cooler than a cucumber, from ",
-    'Indie Pop / Alternative': "quirky indie vibes, including ",
-    'Classical': "timeless classical pieces, like ",
-    'Country': "country tunes that’ll make your heart twang, starring ",
-    'K-Pop': "K-Pop anthems to make you stan, featuring ",
-    'Dance / Electronic': "dance and electronic beats that'll get your feet moving, like "
+    'Pop': "Pop bops for when you need to strut like you own the place.",
+    'Hip-Hop / Rap': "Beats so fire, you’ll feel like the main character instantly.",
+    'R&B': "Smooth jams for pretending life’s a rom-com montage.",
+    'Indie Pop / Alternative': "Quirky tunes for staring out windows like you’re in an A24 film.",
+    'Classical': "Epic melodies to make vacuuming feel like a royal event.",
+    'Country': "Yeehaw vibes for living your best small-town drama fantasy.",
+    'K-Pop': "Anthems so hype, you’ll stan yourself by the end of the day.",
+    'Dance / Electronic': "Electric bangers for dancing like no one’s watching (but everyone is)."
 };
 
 function revealResult() {
