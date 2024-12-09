@@ -399,7 +399,7 @@ function revealResult() {
                     <p><strong>Genre:</strong> ${topAlbumCategory}</p>
                     <div class="action-buttons">
                         <button onclick="shareResults()" class="action-button">Share Quiz</button>
-                        <button onclick="openSurvey()" class="action-button">Take Our Survey</button>
+                        <button onclick="openSurvey()" class="action-button">Feedback</button>
                     </div>
                 </div>
             </div>
