@@ -279,6 +279,9 @@ function selectRandomQuestions() {
 }
 
 function renderState(state) {
+    currentState = state; // Update the current state
+    updateProgress(); // Call updateProgress to adjust the progress bar
+
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
     const previousButton = document.getElementById('previous');
@@ -334,8 +337,9 @@ function changeState(newState, selectedCats) {
         }
     });
 
-    currentState = newState;
-    renderState(currentState);
+    stateStack.push(currentState); // Save current state
+    currentState = newState; // Update to the new state
+    renderState(currentState); // Render the new state
 }
 
 function goBack() {
@@ -473,8 +477,44 @@ function goBack() {
     }
 }
 
-// Add any additional functions you need for UI interactions
+// Function to initialize the quiz and set up progress bar
 window.onload = () => {
+    progress = 0;
     selectRandomQuestions(); // Initialize the quiz with a random selection of questions
     renderState(currentState); // Start the quiz
+    updateProgress(); // Initialize the progress bar
 };
+
+// Progress Bar Functionality
+let progress = 0;
+
+let progressFill = document.querySelector('.progress-fill');
+let progressText = document.querySelector('.progress-text');
+
+let numHearts = 15;
+
+function updateProgress() {
+    const progressPercentage = Math.round(((currentState - 1) / totalQuestions) * 100); // Calculate progress dynamically
+    const filledHearts = Math.round((progressPercentage / 100) * numHearts);
+    const heartWidth = 100 / numHearts; 
+
+    progressFill.style.width = `${filledHearts * heartWidth}%`; 
+
+    if (filledHearts > 0) {
+        progressFill.classList.add('filled'); 
+    } else {
+        progressFill.classList.remove('filled'); 
+    }
+
+    progressText.textContent = `Progress: ${progressPercentage}%`;
+}
+
+function advanceProgress() {
+    if (currentState <= totalQuestions) {
+        updateProgress(); // Ensure progress updates dynamically
+    }
+}
+
+updateProgress();  
+
+advanceProgress();
