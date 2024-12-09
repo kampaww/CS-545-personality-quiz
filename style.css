@@ -252,26 +252,23 @@ h1 {
     text-align: left; /* Aligns the title text to the left */
 }
 
-/* Assuming #previous-section is the container of the #previous button */
-#previous-section {
-    display: flex;
-    justify-content: center;  /* Horizontally center the button */
-    align-items: center;      /* Vertically center the button */
-    height: 100vh;            /* Make the container take full height of the viewport */
-}
 
 #previous {
     padding: 10px 20px;
     background-color: #34495e;
+    border: 2px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
     color: white;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto; /* Center the button horizontally */
+    display: block; /* Make it a block element for centering */
     font-family: 'VideoGameFont', sans-serif;
     font-size: 1.1em;
 }
+
 
 
 #previous:hover {
