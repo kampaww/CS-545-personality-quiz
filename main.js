@@ -1,8 +1,8 @@
 const activityGroups = {
     "Media-based": ["movie marathon!", "live concert!", "game night!", "TV series binge"],
-    "Outdoorsy": ["Beach Day!!!", "scenic picnic!", "Road Trip!!!", "nature hike!"],
+    "Outdoorsy": ["each day!", "scenic picnic!", "road trip!", "nature hike!"],
     "Calm": ["cool museum visit!", "thrift store try-on!", "yoga and meditation session!"],
-    "Creative": ["short story or poem writing!", " DIY home decor project!", "drawing or painting on your daily walk!", "baking experiment!", "recipe creation!"]
+    "Creative": ["short story or poem writing!", "DIY home decor project!", "drawing or painting on your daily walk!", "baking experiment!", "recipe creation!"]
 };
 
 const albumGroups = {
@@ -366,7 +366,12 @@ const genreDescriptions = {
     'K-Pop': "Anthems so hype, you’ll stan yourself by the end of the day.",
     'Dance / Electronic': "Electric bangers for dancing like no one’s watching (but everyone is)."
 };
-
+const activityInterpretations = {
+    'Media-based': "You turn couch time into an Olympic sport. Gold medal, incoming.",
+    'Outdoorsy': "You’re one with nature—basically a cool, adventurous squirrel.",
+    'Calm': "You’re chill AF. If zen was a currency, you’d be a billionaire.",
+    'Creative': "You’re a chaotic art goblin, turning random ideas into masterpieces."
+};
 function revealResult() {
     // Determine the top activity and album based on accumulated scores or random selection
     const topActivityCategory = getTopCategory(activityScores);
@@ -393,6 +398,7 @@ function revealResult() {
                 <div class="infoSection">
                     <h3>Recommended Activity:</h3>
                     <p>${activityDesc}${activityRecommendation}</p>
+                    <p><em>${activityInterpretations[topActivityCategory]}</em></p>
                     <h3>Recommended Album:</h3>
                     <p>${albumRecommendation}</p>
                     <p><em>${genreDesc}</em></p>
