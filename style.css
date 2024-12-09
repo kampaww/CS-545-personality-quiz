@@ -81,70 +81,39 @@ body {
 
 
 .question {
-    margin-bottom: 20px; /* Space between questions */
-    padding: 15px; /* Padding inside the question box */
-    background-color: rgba(10, 54, 76, 0.8); /* Dark background with 80% opacity */
-    border: 4px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
-    font-family: 'VideoGameFont', sans-serif; /* Use a pixelated font */
-    font-size: 1.5em; /* Slightly larger font for readability */
-    color: #ffffff; /* Bright white text */
-    text-align: center; /* Center align the text */
-    letter-spacing: 2px; /* Add spacing between letters for a pixel effect */
-    text-transform: uppercase; /* Capitalized letters for emphasis */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
-    border-radius: 5px; /* Subtle rounded corners, can be removed */
-    word-wrap: break-word; /* Ensure long words wrap to the next line */
-    position: relative; /* For pseudo-elements */
-    max-width: 80%; /* Reduce the width of the background */
-    margin: 20px auto; /* Center the box horizontally */
+    margin-bottom: 20px;
 }
 
-
 .answers {
-    max-width: 70%;
+    max-width: 80%;
     margin: 20px auto;
     padding: 10px;
-    background-color: #628a22; /* Darker background for a retro look */
-    border-radius: 0; /* No rounded corners */
-    border: 3px solid #ffffff; /* Thick white border for a pixel style */
-    font-family: 'VideoGameFont', sans-serif; /* Use your pixel font */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Slight shadow for depth */
-    height: auto; /* Allow the height to grow with content */
-    min-height: 40px; /* Ensure minimum height */
+    background-color: #b8dbd9;
+    border-radius: 8px;
 }
 
 .answers label {
     display: block;
     margin: 10px 0;
-    padding: 15px; /* Padding creates space inside the box */
+    padding: 15px;
     border: 2px solid #e0e0e0;
-    border-radius: 0; /* No rounded corners */
+    border-radius: 8px;
     cursor: pointer;
-    background-color: #6e934d; /* Dark background */
-    color: #ffffff; /* White text */
     transition: all 0.3s ease;
-    text-transform: uppercase; /* Retro all caps */
-    letter-spacing: 1px; /* Slightly spaced letters */
-    font-size: 1.15em; /* Size for readability */
-    box-shadow: 0 4px 8px rgba(56, 102, 65, 1); /* Shadow for retro depth */
-    text-align: center; /* Center the text horizontally */
-    line-height: 1.8; /* Remove fixed line height for natural spacing */
-    word-wrap: break-word; /* Ensure long words wrap properly */
-    min-height: 40px; /* Minimum height for visual consistency */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .answers label:hover {
-    background-color: #b2bd7e; /* Slightly lighter background on hover */
-    border-color: #8DAA9D; /* Retro green hover effect */
-    transform: scale(1.02); /* Slight zoom */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+    background-color: #f8f9fa;
+    border-color: #8DAA9D;
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .answers input[type="radio"] {
-    display: none; /* Hide radio buttons */
+    display: none;
 }
-
 
 #result {
     font-size: 1.2em;
