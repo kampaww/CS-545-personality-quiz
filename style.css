@@ -97,7 +97,7 @@ body {
     word-wrap: break-word;
     position: relative;
     height: auto;
-    min-height: 40px; /* Added fixed minimum height */
+    min-height: 24px; /* Updated from 40px */
 }
 
 
@@ -116,7 +116,9 @@ body {
 }
 
 .answers label {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 3px 0;
     padding: clamp(3px, 1vw, 8px); /* Responsive padding */
     border: 2px solid #e0e0e0;
@@ -129,10 +131,10 @@ body {
     letter-spacing: 1px; /* Slightly spaced letters */
     font-size: clamp(0.5em, 1.2vw, 1em); /* Responsive font size */
     box-shadow: 0 4px 8px rgba(56, 102, 65, 1); /* Shadow for retro depth */
-    text-align: center; /* Center the text horizontally */
-    line-height: 1.8; /* Remove fixed line height for natural spacing */
-    word-wrap: break-word; /* Ensure long words wrap properly */
-    min-height: 25px; /* Minimum height for visual consistency */
+    text-align: center;
+    line-height: normal;
+    word-wrap: break-word;
+    min-height: 40.24px;
 }
 
 .answers label:hover {
@@ -240,10 +242,6 @@ h1 {
 
 /* Add media queries for smaller screens */
 @media screen and (max-width: 768px) {
-    .progress-container {
-        max-width: 90%;
-        width: auto;
-    }
 
     .question, .answers {
         max-width: 90%;
