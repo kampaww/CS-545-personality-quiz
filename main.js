@@ -1,8 +1,8 @@
 const activityGroups = {
-    "Media-based": ["Indulge in a movie marathon!", "Go to a concert!", "Have a game night!", "Binge that show you've been putting off"],
-    "Outdoorsy": ["Beach Day!!!", "Have a picnic!", "Road Trip!!!", "Go on a nature hike!"],
-    "Calm": ["Go visit a cool museum!", "Try out some new styles at the thrift store!", "Try yoga or meditation!"],
-    "Creative": ["Write a short story or a poem!", "Start a DIY home decor project!", "Try drawing or painting something you see everyday!", "Bake something delicious!", "Try out some new recipes!"]
+    "Media-based": ["movie marathon!", "live concert!", "game night!", "TV series binge!"],
+    "Outdoorsy": ["Beach Day!!!", "scenic picnic!", "road trip!!!", "nature hike!"],
+    "Calm": ["cool museum visit!", "thrift store try-on!", "yoga and meditation session!"],
+    "Creative": ["short story or poem writing!", " DIY home decor project!", "drawing or painting on your daily walk!", "baking experiment!", "recipe creation!"]
 };
 
 const albumGroups = {
@@ -349,11 +349,11 @@ function goBack() {
     }
 }
 
-const activityInterpretations = {
-    'Media-based': "You turn couch time into an Olympic sport. Gold medal, incoming.",
-    'Outdoorsy': "You’re one with nature—basically a cool, adventurous squirrel.",
-    'Calm': "You’re chill AF. If zen was a currency, you’d be a billionaire.",
-    'Creative': "You’re a chaotic art goblin, turning random ideas into masterpieces."
+const activityDescriptions = {
+    'Media-based': "Level up your chill with a ",
+    'Outdoorsy': "Catch some vibes outdoors with a ",
+    'Calm': "Zen out with a ",
+    'Creative': "Unleash your inner artist with a "
 };
 
 const albumInterpretations = {
