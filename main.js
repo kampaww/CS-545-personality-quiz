@@ -1,8 +1,8 @@
 const activityGroups = {
-    "Media-based": ["Indulge in a movie marathon!", "Go to a concert!", "Have a game night!", "Binge that show you've been putting off"],
-    "Outdoorsy": ["Beach Day!!!", "Have a picnic!", "Road Trip!!!", "Go on a nature hike!"],
-    "Calm": ["Go visit a cool museum!", "Try out some new styles at the thrift store!", "Try yoga or meditation!"],
-    "Creative": ["Write a short story or a poem!", "Start a DIY home decor project!", "Try drawing or painting something you see everyday!", "Bake something delicious!", "Try out some new recipes!"]
+    "Media-based": ["movie marathon!", "live concert!", "game night!", "TV series binge"],
+    "Outdoorsy": ["Beach Day!!!", "scenic picnic!", "Road Trip!!!", "nature hike!"],
+    "Calm": ["cool museum visit!", "thrift store try-on!", "yoga and meditation session!"],
+    "Creative": ["short story or poem writing!", " DIY home decor project!", "drawing or painting on your daily walk!", "baking experiment!", "recipe creation!"]
 };
 
 const albumGroups = {
@@ -350,21 +350,21 @@ function goBack() {
 }
 
 const activityDescriptions = {
-    'Media-based': "Level up your chill with ",
-    'Outdoorsy': "Catch some vibes outdoors with ",
-    'Calm': "Zen out with ",
-    'Creative': "Unleash your inner artist with "
+    'Media-based': "Level up your chill with a ",
+    'Outdoorsy': "Catch some vibes outdoors with a ",
+    'Calm': "Zen out with a ",
+    'Creative': "Unleash your inner artist with a "
 };
 
 const genreDescriptions = {
-    'Pop': "pop bops that slap, featuring ",
-    'Hip-Hop / Rap': "hip-hop beats that hit different, with ",
-    'R&B': "smooth R&B that's cooler than a cucumber, from ",
-    'Indie Pop / Alternative': "quirky indie vibes, including ",
-    'Classical': "timeless classical pieces, like ",
-    'Country': "country tunes that’ll make your heart twang, starring ",
-    'K-Pop': "K-Pop anthems to make you stan, featuring ",
-    'Dance / Electronic': "dance and electronic beats that'll get your feet moving, like "
+    'Pop': "Pop bops for when you need to strut like you own the place.",
+    'Hip-Hop / Rap': "Beats so fire, you’ll feel like the main character instantly.",
+    'R&B': "Smooth jams for pretending life’s a rom-com montage.",
+    'Indie Pop / Alternative': "Quirky tunes for staring out windows like you’re in an A24 film.",
+    'Classical': "Epic melodies to make vacuuming feel like a royal event.",
+    'Country': "Yeehaw vibes for living your best small-town drama fantasy.",
+    'K-Pop': "Anthems so hype, you’ll stan yourself by the end of the day.",
+    'Dance / Electronic': "Electric bangers for dancing like no one’s watching (but everyone is)."
 };
 
 function revealResult() {
@@ -394,7 +394,8 @@ function revealResult() {
                     <h3>Recommended Activity:</h3>
                     <p>${activityDesc}${activityRecommendation}</p>
                     <h3>Recommended Album:</h3>
-                    <p>${albumRecommendation} by ${artist}</p>
+                    <p>${albumRecommendation}</p>
+                    <p><em>${genreDesc}</em></p>
                     <p><strong>Genre:</strong> ${topAlbumCategory}</p>
                     <div class="action-buttons">
                         <button onclick="shareResults()" class="action-button">Share Quiz</button>
