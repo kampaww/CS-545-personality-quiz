@@ -1,8 +1,8 @@
 const activityGroups = {
-    "Media-based": ["movie marathon!", "live concert!", "game night!", "TV series binge!"],
-    "Outdoorsy": ["Beach Day!!!", "scenic picnic!", "road trip!!!", "nature hike!"],
-    "Calm": ["cool museum visit!", "thrift store try-on!", "yoga and meditation session!"],
-    "Creative": ["short story or poem writing!", " DIY home decor project!", "drawing or painting on your daily walk!", "baking experiment!", "recipe creation!"]
+    "Media-based": ["Indulge in a movie marathon!", "Go to a concert!", "Have a game night!", "Binge that show you've been putting off"],
+    "Outdoorsy": ["Beach Day!!!", "Have a picnic!", "Road Trip!!!", "Go on a nature hike!"],
+    "Calm": ["Go visit a cool museum!", "Try out some new styles at the thrift store!", "Try yoga or meditation!"],
+    "Creative": ["Write a short story or a poem!", "Start a DIY home decor project!", "Try drawing or painting something you see everyday!", "Bake something delicious!", "Try out some new recipes!"]
 };
 
 const albumGroups = {
@@ -197,10 +197,10 @@ const gameData = {
     "17": {
         "text": "If you could instantly turn into an object when you’re feeling awkward, what would you pick?",
         "choices": {
-            "A decorative lamp (no one questions a lamp)": [18, ["Media-based", "Hip-Hop / Rap"]],
-            "A houseplant (photosynthesis sounds peaceful)": [18, ["Outdoorsy", "Country"]],
-            "A library book (because no one ever checks them out)": [18, ["Calm", "Indie Pop / Alternative"]],
-            "A traffic cone (bold, bright, and in the way)": [18, ["Outdoorsy", "K-Pop"]]
+            "A decorative lamp": [18, ["Media-based", "Hip-Hop / Rap"]],
+            "A houseplant": [18, ["Outdoorsy", "Country"]],
+            "A library book": [18, ["Calm", "Indie Pop / Alternative"]],
+            "A traffic cone": [18, ["Outdoorsy", "K-Pop"]]
         }
     },
     "18": {
@@ -349,24 +349,23 @@ function goBack() {
     }
 }
 
-const activityInterpretations = {
-    'Media-based': "Level up your chill with a ",
-    'Outdoorsy': "Catch some vibes outdoors with a ",
-    'Calm': "Zen out with a ",
-    'Creative': "Unleash your inner artist with a "
+const activityDescriptions = {
+    'Media-based': "Level up your chill with ",
+    'Outdoorsy': "Catch some vibes outdoors with ",
+    'Calm': "Zen out with ",
+    'Creative': "Unleash your inner artist with "
 };
 
-const albumInterpretations = {
-    'Pop': "Pop bops for when you need to strut like you own the place.",
-    'Hip-Hop / Rap': "Beats so fire, you’ll feel like the main character instantly.",
-    'R&B': "Smooth jams for pretending life’s a rom-com montage.",
-    'Indie Pop / Alternative': "Quirky tunes for staring out windows like you’re in an A24 film.",
-    'Classical': "Epic melodies to make vacuuming feel like a royal event.",
-    'Country': "Yeehaw vibes for living your best small-town drama fantasy.",
-    'K-Pop': "Anthems so hype, you’ll stan yourself by the end of the day.",
-    'Dance / Electronic': "Electric bangers for dancing like no one’s watching (but everyone is)."
+const genreDescriptions = {
+    'Pop': "pop bops that slap, featuring ",
+    'Hip-Hop / Rap': "hip-hop beats that hit different, with ",
+    'R&B': "smooth R&B that's cooler than a cucumber, from ",
+    'Indie Pop / Alternative': "quirky indie vibes, including ",
+    'Classical': "timeless classical pieces, like ",
+    'Country': "country tunes that’ll make your heart twang, starring ",
+    'K-Pop': "K-Pop anthems to make you stan, featuring ",
+    'Dance / Electronic': "dance and electronic beats that'll get your feet moving, like "
 };
-
 
 function revealResult() {
     // Determine the top activity and album based on accumulated scores or random selection
@@ -375,14 +374,13 @@ function revealResult() {
 
     const activityRecommendation = getRandomItem(activityGroups[topActivityCategory]);
     const albumRecommendation = getRandomItem(albumGroups[topAlbumCategory]);
-
-    // Split the albumRecommendation to extract album name and artist
-    const [albumName, artist] = albumRecommendation.split(" - ");
+    const albumDetails = albumRecommendation.split(" - ");
+    const artist = albumDetails.length > 1 ? albumDetails[1] : "Unknown Artist";
     const albumImageUrl = albumURLs[albumRecommendation];
 
-    // Fetch dynamic interpretations
-    const activityInterpretation = activityInterpretations[topActivityCategory] || "You’re a vibe. Full stop.";
-    const albumInterpretation = albumInterpretations[topAlbumCategory] || "Tunes so good, they might just break your brain (in a good way).";
+    // Prepare activity and genre descriptions
+    const activityDesc = activityDescriptions[topActivityCategory] || "Enjoy ";
+    const genreDesc = genreDescriptions[topAlbumCategory] || "listening to ";
 
     // Compose the HTML content for displaying results
     const resultHTML = `
@@ -394,11 +392,9 @@ function revealResult() {
                 </div>
                 <div class="infoSection">
                     <h3>Recommended Activity:</h3>
-                    <p>${activityRecommendation}</p>
-                    <p><em>${activityInterpretation}</em></p>
+                    <p>${activityDesc}${activityRecommendation}</p>
                     <h3>Recommended Album:</h3>
-                    <p>${albumName} by ${artist}</p>
-                    <p><em>${albumInterpretation}</em></p>
+                    <p>${albumRecommendation} by ${artist}</p>
                     <p><strong>Genre:</strong> ${topAlbumCategory}</p>
                     <div class="action-buttons">
                         <button onclick="shareResults()" class="action-button">Share Quiz</button>
@@ -414,7 +410,6 @@ function revealResult() {
     document.getElementById("quiz").style.display = "none";
     document.querySelector('.progress-container').style.display = 'none'; // Ensure the progress bar is hidden on result display
 }
-
 
 function openSurvey() {
     window.open('https://forms.gle/uZw9fD8WPARJ3zLa7', '_blank');
