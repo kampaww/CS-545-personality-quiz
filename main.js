@@ -197,10 +197,10 @@ const gameData = {
     "17": {
         "text": "If you could instantly turn into an object when you’re feeling awkward, what would you pick?",
         "choices": {
-            "A decorative lamp (no one questions a lamp)": [18, ["Media-based", "Hip-Hop / Rap"]],
-            "A houseplant (photosynthesis sounds peaceful)": [18, ["Outdoorsy", "Country"]],
-            "A library book (because no one ever checks them out)": [18, ["Calm", "Indie Pop / Alternative"]],
-            "A traffic cone (bold, bright, and in the way)": [18, ["Outdoorsy", "K-Pop"]]
+            "A decorative lamp": [18, ["Media-based", "Hip-Hop / Rap"]],
+            "A houseplant": [18, ["Outdoorsy", "Country"]],
+            "A library book": [18, ["Calm", "Indie Pop / Alternative"]],
+            "A traffic cone": [18, ["Outdoorsy", "K-Pop"]]
         }
     },
     "18": {
