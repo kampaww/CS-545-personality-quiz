@@ -506,8 +506,6 @@ function updateProgress() {
     } else {
         progressFill.classList.remove('filled'); 
     }
-
-    progressText.textContent = `Progress: ${progressPercentage}%`;
 }
 
 function advanceProgress() {
