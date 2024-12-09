@@ -349,7 +349,7 @@ function goBack() {
     }
 }
 
-const activityDescriptions = {
+const activityInterpretations = {
     'Media-based': "Level up your chill with a ",
     'Outdoorsy': "Catch some vibes outdoors with a ",
     'Calm': "Zen out with a ",
