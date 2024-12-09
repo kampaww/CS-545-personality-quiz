@@ -9,12 +9,6 @@
 </head>
 <body>
     <h1>What's Your Personality Type?</h1>
-    <div class="progress-container">
-        <div class="progress-text">Question 1 of 5</div>
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
-    </div>    
     <form id="quiz" onsubmit="event.preventDefault(); showResult();">
         <div class="question">
             <p>1. What is your favorite kind of weather?</p>
@@ -23,6 +17,12 @@
         </div>
         <button type="button" id="previous" onclick="goBack()" style="display:none;">Previous</button>
     </form>
+    <div class="progress-container">
+        <div class="progress-text">Question 1 of 5</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>    
     <div id="result"></div>
     <button id="replay" onclick="resetQuiz()">Play Again</button>
     <button id="previous" onclick="goBack()" style="display: none;">Previous Question</button>
