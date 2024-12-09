@@ -395,6 +395,7 @@ function revealResult() {
                     <p>${activityDesc}${activityRecommendation}</p>
                     <h3>Recommended Album:</h3>
                     <p>${albumRecommendation}</p>
+                    <p><em>${genreDesc}</em></p>
                     <p><strong>Genre:</strong> ${topAlbumCategory}</p>
                     <div class="action-buttons">
                         <button onclick="shareResults()" class="action-button">Share Quiz</button>
