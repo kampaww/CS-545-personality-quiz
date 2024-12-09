@@ -416,8 +416,9 @@ function openSurvey() {
 }
 
 function shareResults() {
+    const hardcodedLink = "https://kampaww.github.io/CS-545-personality-quiz/"; // Replace with your desired URL
     const dummy = document.createElement('textarea');
-    dummy.value = window.location.href;
+    dummy.value = hardcodedLink;
     document.body.appendChild(dummy);
     dummy.select();
     document.execCommand('copy');
