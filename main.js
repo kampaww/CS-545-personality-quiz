@@ -392,6 +392,10 @@ function revealResult() {
                     <h3>Recommended Album:</h3>
                     <p>${albumRecommendation} by ${artist}</p>
                     <p><strong>Genre:</strong> ${topAlbumCategory}</p>
+                    <div class="action-buttons">
+                        <button onclick="shareResults()" class="action-button">Share Quiz</button>
+                        <button onclick="openSurvey()" class="action-button">Take Our Survey</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -403,7 +407,39 @@ function revealResult() {
     document.querySelector('.progress-container').style.display = 'none'; // Ensure the progress bar is hidden on result display
 }
 
+function openSurvey() {
+    window.open('https://forms.gle/uZw9fD8WPARJ3zLa7', '_blank');
+}
 
+function shareResults() {
+    const dummy = document.createElement('textarea');
+    dummy.value = window.location.href;
+    document.body.appendChild(dummy);
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    const popup = document.createElement('div');
+    popup.style.cssText = `
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       background: white;
+       padding: 20px;
+       border-radius: 8px;
+       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+       z-index: 1000;
+       text-align: center;
+    `;
+    popup.innerHTML = `<p style="margin: 0; font-size: 16px;">Link copied to clipboard!</p>`;
+    document.body.appendChild(popup);
+   
+    setTimeout(() => {
+       popup.style.opacity = '0';
+       popup.style.transition = 'opacity 0.3s ease';
+       setTimeout(() => popup.remove(), 300);
+    }, 1200);
+}
 function resetQuiz() {
     currentState = 1;
     activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
