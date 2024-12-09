@@ -136,7 +136,7 @@ body {
     box-shadow: 0 4px 8px rgba(56, 102, 65, 1); /* Shadow for retro depth */
     text-align: center; /* Center the text horizontally */
     line-height: 1.8; /* Remove fixed line height for natural spacing */
-    word-wrap: break-word; /* Ensure long words wrap properly */
+    word-wrap: break-word; /* Ensure l ong words wrap properly */
     min-height: 40px; /* Minimum height for visual consistency */
     flex-grow: 1; /* Ensure labels take equal space */
     font-size: 20px;
