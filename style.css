@@ -61,15 +61,15 @@ body {
 
 .progress-text {
     font-family: 'VideoGameFont', sans-serif;
-    margin-bottom: 10px; /* Adds spacing between text and bar */
-    font-size: clamp(0.8em, 1.5vw, 1.2em); /* Responsive font size */
+    margin-bottom: 10px; 
+    font-size: clamp(0.8em, 1.5vw, 1.2em); 
     font-weight: bold;
-    color: #2c3e50; /* Customize color */
+    color: #2c3e50; 
 }
 
 .progress-fill {
     height: 100%;
-    width: 0%; /* Initial width set to 0% */
+    width: 0%; 
     background-image: url('images/emptyHeart.png');
     background-repeat: repeat-x;
     background-size: 60px 40px;
@@ -78,14 +78,12 @@ body {
 
 
 .progress-fill.filled {
-    background-image: url('images/filledHeart.png'); /* Filled heart image */
+    background-image: url('images/filledHeart.png'); 
 }
 
 
-
-
 .question {
-    max-width: 70%; /* Match answers width */
+    max-width: 70%;
     margin: 10px auto;
     padding: 8px;
     background-color: rgba(10, 54, 76);
@@ -101,7 +99,7 @@ body {
     word-wrap: break-word;
     position: relative;
     height: auto;
-    min-height: 40px; /* Updated from 40px */
+    min-height: 40px; 
     line-height: 1.5;
 }
 
@@ -117,14 +115,14 @@ body {
     max-width: 70%;
     margin: 5px auto;
     padding: 5px;
-    background-color: #628a22; /* Darker background for a retro look */
-    border-radius: 0; /* No rounded corners */
-    border: 3px solid #ffffff; /* Thick white border for a pixel style */
-    font-family: 'VideoGameFont', sans-serif; /* Use your pixel font */
+    background-color: #628a22; 
+    border-radius: 0; 
+    border: 3px solid #ffffff; 
+    font-family: 'VideoGameFont', sans-serif; 
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Slight shadow for depth */
-    height: auto; /* Allow the height to grow with content */
-    min-height: 40px; /* Ensure minimum height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); 
+    height: auto; 
+    min-height: 40px; 
     line-height: 1.5;
 }
 
@@ -133,17 +131,17 @@ body {
     justify-content: center;
     align-items: center;
     margin: 3px 0;
-    padding: clamp(3px, 1vw, 8px); /* Responsive padding */
+    padding: clamp(3px, 1vw, 8px); 
     border: 2px solid #e0e0e0;
-    border-radius: 0; /* No rounded corners */
+    border-radius: 0; 
     cursor: pointer;
-    background-color: #7DAF2C; /* Dark background */
-    color: #000000; /* White text */
+    background-color: #7DAF2C; 
+    color: #000000; 
     transition: all 0.3s ease;
-    text-transform: uppercase; /* Retro all caps */
-    letter-spacing: 1px; /* Slightly spaced letters */
-    font-size: clamp(0.5em, 1.2vw, 1em); /* Responsive font size */
-    box-shadow: 0 4px 8px rgba(56, 102, 65, 1); /* Shadow for retro depth */
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-size: clamp(0.5em, 1.2vw, 1em); 
+    box-shadow: 0 4px 8px rgba(56, 102, 65, 1); 
     text-align: center;
     line-height: normal;
     word-wrap: break-word;
@@ -152,9 +150,9 @@ body {
 
 .answers label:hover {
     background-color: #b2bd7e; /* Slightly lighter background on hover */
-    border-color: #8DAA9D; /* Retro green hover effect */
+    border-color: #8DAA9D; 
     transform: scale(1.02); /* Slight zoom */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .answers input[type="radio"] {
@@ -172,38 +170,38 @@ h1 {
     font-family: 'VideoGameFont', sans-serif;
     color: rgb(0, 0, 0);
     font-size: clamp(1.8em, 3vw, 4.5em);
-    margin: 100px 0 -1250px 0; /* Increased top margin, decreased bottom margin */
+    margin: 100px 0 -1250px 0; 
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-align: center; /* Changed from right to center */
+    text-align: center; 
 }
 
 h2 {
     font-family: 'VideoGameFont', sans-serif;
     color: #FFDBF7;
     font-size: clamp(0.8em, 2vw, 1.5em);
-    margin: 20px 0 3px 0; /* Increased top margin, decreased bottom margin */
+    margin: 20px 0 3px 0; 
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-align: left; /* Ensures text is left-aligned */
-    padding: 2; /* Remove any padding */
+    text-align: left; 
+    padding: 2; 
 }
 
 
 #idCard {
     font-family: 'Press Start 2P', Arial, sans-serif; /* Retro pixel font */
-    background-color: #34495e; /* Dark retro background */
-    width: 90%; /* Responsive width */
-    max-width: 1100px; /* Maximum width */
-    margin: 30px auto; /* Centering the card */
+    background-color: #34495e; 
+    width: 90%; 
+    max-width: 1100px; 
+    margin: 30px auto;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Deeper shadow for a retro pop-out */
-    border: 3px solid #ffcc00; /* Bright border reminiscent of arcade game frames */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    border: 3px solid #ffcc00; 
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    color: #FFDF61; /* Bright yellow text for a retro feel */
-    text-shadow: 2px 2px 0px #000; /* Pixel-style text shadow */
+    color: #FFDF61; 
+    text-shadow: 2px 2px 0px #000;
 }
 
 .cardContents {
@@ -231,7 +229,7 @@ h2 {
 .infoSection {
     flex: 2;
     padding: 10px;
-    text-align: left; /* Aligns text to the left */
+    text-align: left;
 }
 
 .infoSection h3 {
@@ -261,15 +259,15 @@ h2 {
 #previous {
     padding: 10px 20px;
     background-color: #34495e;
-    border: 2px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
+    border: 2px solid #ffcc00; 
     color: white;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
     margin-left: auto;
-    margin-right: auto; /* Center the button horizontally */
-    display: block; /* Make it a block element for centering */
+    margin-right: auto; 
+    display: block; 
     font-family: 'VideoGameFont', sans-serif;
     font-size: 1.1em;
 }
@@ -277,19 +275,19 @@ h2 {
 
 #previous:hover {
     background-color: #2c3e50;
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    transform: scale(1.05); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
 }
 
 #previous:active {
-    transform: scale(1); /* Reset scale when button is pressed */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow on active */
+    transform: scale(1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
 }
 
 .action-button {
     padding: 10px 20px;
     background-color: #34495e;
-    border: 2px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
+    border: 2px solid #ffcc00; 
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -297,21 +295,21 @@ h2 {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    display: block; /* Make it a block element for centering */
+    display: block; 
     font-family: 'VideoGameFont', sans-serif;
     font-size: 1.1em;
 }
 
 .action-button:hover {
     background-color: #ffcc00;
-    color: #2c3e50; /* Matching text color */
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    color: #2c3e50; 
+    transform: scale(1.05); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .action-button:active {
-    transform: scale(1); /* Reset scale when button is pressed */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow on active */
+    transform: scale(1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
 }
 
 .action-buttons {
@@ -319,33 +317,33 @@ h2 {
 }
 
 .action-button {
-    display: inline-block; /* Change from block to inline-block for side-by-side layout */
-    margin-top: 0; /* Remove unnecessary top margin */
+    display: inline-block; 
+    margin-top: 0; 
 }
 
 #result:not(:empty) + .action-buttons {
-    display: flex; /* Make the buttons visible */
+    display: flex; 
     justify-content: center;
-    gap: 15px; /* Space between buttons */
+    gap: 15px; 
 }
 
 #replay {
-    background-color: #ffcc00; /* Bright yellow background */
-    border: 2px solid #34495e; /* Dark outline */
-    color: #34495e; /* Matching text color */
+    background-color: #ffcc00; 
+    border: 2px solid #34495e; 
+    color: #34495e; 
 }
 
 #replay:hover {
-    background-color: #2c3e50; /* Dark background on hover */
-    border-color: #ffcc00; /* Bright yellow outline */
-    color: #ffcc00; /* Matching text color */
-    transform: scale(1.05); /* Slight zoom effect */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    background-color: #2c3e50; 
+    border-color: #ffcc00; 
+    color: #ffcc00; 
+    transform: scale(1.05); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
 }
 
 #replay:active {
-    transform: scale(1); /* Reset scale when pressed */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
+    transform: scale(1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
 }
 
 /* Intro Page Container */
@@ -380,29 +378,29 @@ h2 {
     margin: 5px 0 20px 0; /* Top and bottom spacing for balance */
 }
 
-/* Start Button (Matches Play Again Button) */
+/* Start Button and Play Again Button */
 .intro-container .action-button {
-    padding: 15px 30px; /* Larger button size */
+    padding: 15px 30px; 
     background-color: #34495e;
-    border: 2px solid #ffcc00; /* Bright yellow border for a retro feel */
+    border: 2px solid #ffcc00; 
     color: white;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
     font-family: 'VideoGameFont', sans-serif;
-    font-size: 1.2em; /* Slightly larger text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Retro shadow */
+    font-size: 1.2em; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
 }
 
 .intro-container .action-button:hover {
-    background-color: #ffcc00; /* Yellow hover effect */
-    color: #2c3e50; /* Dark text on hover */
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+    background-color: #ffcc00; 
+    color: #2c3e50; 
+    transform: scale(1.1); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
 }
 
 .intro-container .action-button:active {
-    transform: scale(1); /* Reset scale when button is pressed */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
+    transform: scale(1); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
 }

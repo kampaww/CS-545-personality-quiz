@@ -264,8 +264,6 @@ function updateProgressBar(state) {
         progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
         return;
     }
-
-    // Clamp percentage between 0 and 100
     const clampedPercentage = Math.min(100, Math.max(0, progressPercentage));
     
     progressFill.style.width = `${clampedPercentage}%`;
@@ -275,7 +273,7 @@ function updateProgressBar(state) {
 function selectRandomQuestions() {
     const keys = Object.keys(gameData);
     const shuffled = keys.sort(() => Math.random() - 0.5); // Shuffle questions
-    selectedQuestions = shuffled.slice(0, totalQuestions); // Pick the first 15
+    selectedQuestions = shuffled.slice(0, totalQuestions); // Pick the first 10
 }
 
 function renderState(state) {
@@ -335,12 +333,11 @@ function changeState(newState, selectedCats) {
     // Push current state to the state stack for backtracking
     stateStack.push(currentState);
 
-    // Update the current state
     currentState = newState;
 
-    // Re-render the quiz and update the progress bar
+    // Re-render the quiz
     renderState(currentState);
-    updateProgress(); // Ensure progress updates here
+    updateProgress(); // progress update
 }
 
 
@@ -375,12 +372,11 @@ const activityInterpretations = {
     'Creative': "You’re a chaotic art goblin, turning random ideas into masterpieces."
 };
 function revealResult() {
-    // Fill the last heart explicitly
+    // fill the last heart explicitly
     const progressFill = document.querySelector('.progress-fill');
     progressFill.style.width = '100%'; // Ensure the progress bar is fully filled
 
-    // Add a delay before showing the results
-    // Determine the top activity and album based on accumulated scores
+    // top activity and album based on accumulated scores
     const topActivityCategory = getTopCategory(activityScores);
     const topAlbumCategory = getTopCategory(albumScores);
 
@@ -390,11 +386,11 @@ function revealResult() {
     const artist = albumDetails.length > 1 ? albumDetails[1] : "Unknown Artist";
     const albumImageUrl = albumURLs[albumRecommendation];
 
-    // Prepare activity and genre descriptions
+    // activity and genre descriptions
     const activityDesc = activityDescriptions[topActivityCategory] || "Enjoy ";
     const genreDesc = genreDescriptions[topAlbumCategory] || "listening to ";
 
-    // Compose the HTML content for displaying results
+    // html for results
     const resultHTML = `
         <div id="idCard">
             <h2>Your Perfect Pair:</h2>
@@ -427,7 +423,7 @@ function openSurvey() {
 }
 
 function shareResults() {
-    const hardcodedLink = "https://kampaww.github.io/CS-545-personality-quiz/"; // Replace with your desired URL
+    const hardcodedLink = "https://kampaww.github.io/CS-545-personality-quiz/";
     const dummy = document.createElement('textarea');
     dummy.value = hardcodedLink;
     document.body.appendChild(dummy);
@@ -464,7 +460,7 @@ function resetQuiz() {
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
     document.querySelector('.progress-container').style.display = 'block'; // Show the progress bar again
-    selectRandomQuestions(); // Re-select random questions for a new quiz iteration
+    selectRandomQuestions(); // Reselect random questions for a new quiz iteration
     renderState(currentState); // Render the first state/question
 }
 
@@ -511,11 +507,9 @@ function updateProgress() {
 
     // Number of hearts filled, clamped to [1, numHearts]
     const filledHearts = Math.ceil((currentState / totalQuestions) * numHearts);
-
-    // Update progress bar width
     progressFill.style.width = `${(filledHearts / numHearts) * 100}%`;
 
-    // Ensure hearts are marked as filled only if necessary
+    // Ensure hearts are marked as filled only if needed
     if (filledHearts > 0) {
         progressFill.classList.add('filled');
     } else {
