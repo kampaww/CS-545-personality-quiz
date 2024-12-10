@@ -56,7 +56,7 @@ body {
     margin-bottom: 20px;
     background-image: url('images/emptyHeart.png');
     background-repeat: repeat-x;
-    background-size: 40px 40px;
+    background-size: 60px 40px;
 }
 
 .progress-text {
@@ -72,7 +72,7 @@ body {
     width: 0%; /* Initial width set to 0% */
     background-image: url('images/emptyHeart.png');
     background-repeat: repeat-x;
-    background-size: 40px 40px;
+    background-size: 60px 40px;
     transition: width 0.3s ease;
 }
 
@@ -185,27 +185,32 @@ h2 {
     margin: 20px 0 3px 0; /* Increased top margin, decreased bottom margin */
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-align: center; /* Changed from right to center */
+    text-align: left; /* Ensures text is left-aligned */
+    padding: 0; /* Remove any padding */
 }
 
+
 #idCard {
-    font-family: Arial, sans-serif;
-    background-color: white;
+    font-family: 'Press Start 2P', Arial, sans-serif; /* Retro pixel font */
+    background-color: #34495e; /* Dark retro background */
     width: 90%; /* Responsive width */
     max-width: 1100px; /* Maximum width */
     margin: 30px auto; /* Centering the card */
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Deeper shadow for a retro pop-out */
+    border: 3px solid #ffcc00; /* Bright border reminiscent of arcade game frames */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center aligns child elements, you might want to remove or adjust this */
+    align-items: center;
+    color: #ffcc00; /* Bright yellow text for a retro feel */
+    text-shadow: 2px 2px 0px #000; /* Pixel-style text shadow */
+    background-image: linear-gradient(135deg, #34495e 25%, #2c3e50 75%); /* Retro gradient background */
 }
+
 .cardContents {
     display: flex;
     width: 100%;
     align-items: center;
-    border-top: 1px solid #ccc;
     padding-top: 20px;
 }
 
@@ -215,7 +220,6 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f4f4f4;
     border-radius: 10px;
 }
 
@@ -237,7 +241,6 @@ h2 {
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 2px solid #8DAA9D;
     padding-bottom: 8px;
 }
 
@@ -343,5 +346,64 @@ h2 {
 
 #replay:active {
     transform: scale(1); /* Reset scale when pressed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
+}
+
+/* Intro Page Container */
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
+                url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Intro Page Heading */
+.intro-container h1 {
+    font-family: 'VideoGameFont', sans-serif;
+    color: #34495e;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: clamp(3em, 8vw, 6em); /* Large responsive size */
+    margin: 10px 0;
+}
+
+/* Intro Page Subtitle (H2) */
+.intro-container h2 {
+    font-family: 'VideoGameFont', sans-serif;
+    color: #6e934d; /* Complementary color to H1 */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: clamp(1.5em, 4vw, 2.5em); /* Smaller than H1 but still prominent */
+    margin: 5px 0 20px 0; /* Top and bottom spacing for balance */
+}
+
+/* Start Button (Matches Play Again Button) */
+.intro-container .action-button {
+    padding: 15px 30px; /* Larger button size */
+    background-color: #34495e;
+    border: 2px solid #ffcc00; /* Bright yellow border for a retro feel */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    font-family: 'VideoGameFont', sans-serif;
+    font-size: 1.2em; /* Slightly larger text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Retro shadow */
+}
+
+.intro-container .action-button:hover {
+    background-color: #ffcc00; /* Yellow hover effect */
+    color: #2c3e50; /* Dark text on hover */
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+}
+
+.intro-container .action-button:active {
+    transform: scale(1); /* Reset scale when button is pressed */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
 }

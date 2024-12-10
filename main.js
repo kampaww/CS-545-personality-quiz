@@ -232,7 +232,7 @@ const gameData = {
     }
 };
 
-const totalQuestions = 15; // Number of questions to display per quiz
+const totalQuestions = 10; // Number of questions to display per quiz
 let selectedCategories = []; // Add this to track selected categories
 let currentState = 1;
 let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
@@ -495,7 +495,7 @@ let progress = 0;
 let progressFill = document.querySelector('.progress-fill');
 let progressText = document.querySelector('.progress-text');
 
-let numHearts = 15;
+let numHearts = 10;
 
 function updateProgress() {
     const progressPercentage = Math.round(((currentState - 1) / totalQuestions) * 100); // Calculate progress dynamically
