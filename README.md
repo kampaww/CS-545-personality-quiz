@@ -1,2 +1,2 @@
-# CS-545-personality-quiz
-A cool personality quiz
+# CS-545-recommender-questionnare
+A cool activity and album recommender questionnare!
