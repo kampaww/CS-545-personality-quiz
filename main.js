@@ -89,7 +89,7 @@ const gameData = {
     "5": {
         "text": "If you could have a superpower with a drawback, which would you choose?",
         "choices": {
-            "Invincibility, but you have to hold your breath": [6, ["Outdoorsy", "Dance / Electronic"]],
+            "Invisibility, but you have to hold your breath": [6, ["Outdoorsy", "Dance / Electronic"]],
             "Super speed, but it makes you nauseous": [6, ["Creative", "R&B"]],
             "Super strength, but you need 16 hours of sleep": [6, ["Media-based", "Hip-Hop / Rap"]],
             "Hearing people’s thoughts, but you can't turn it off": [6, ["Calm", "Classical"]]
@@ -390,7 +390,7 @@ function revealResult() {
     // Compose the HTML content for displaying results
     const resultHTML = `
         <div id="idCard">
-            <h1>Your Personality Quiz Results</h1>
+            <h2>Your Perfect Pair:</h2>
             <div class="cardContents">
                 <div class="imageSection">
                     <img src="${albumImageUrl}" alt="Album Cover">
@@ -403,10 +403,6 @@ function revealResult() {
                     <p>${albumRecommendation}</p>
                     <p><em>${genreDesc}</em></p>
                     <p><strong>Genre:</strong> ${topAlbumCategory}</p>
-                    <div class="action-buttons">
-                        <button onclick="shareResults()" class="action-button">Share Quiz</button>
-                        <button onclick="openSurvey()" class="action-button">Feedback</button>
-                    </div>
                 </div>
             </div>
         </div>

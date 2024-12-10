@@ -15,6 +15,7 @@ body {
     max-height: 100vh;
 }
 
+
 html, body {
     height: 100%;
     margin: 0;
@@ -26,7 +27,8 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #faf5e2;
-    background-image: url('images/background.png');
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)), 
+    url('images/background.png') no-repeat center center fixed;
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -40,8 +42,11 @@ body {
 .progress-container {
     max-width: 600px;
     margin: 0 auto 15px;
-    position: relative;
-    width: 600px;
+    position: fixed; /* Fixes the container to the viewport */
+    bottom: 0; /* Positions it at the bottom of the screen */
+    left: 50%; /* Centers it horizontally */
+    transform: translateX(-50%); /* Adjusts the container to be perfectly centered */
+    width: 600px; /* Keep the width as specified */
 }
 
 .progress-bar {
@@ -62,7 +67,6 @@ body {
     color: #2c3e50; /* Customize color */
 }
 
-
 .progress-fill {
     height: 100%;
     width: 0%; /* Initial width set to 0% */
@@ -72,9 +76,11 @@ body {
     transition: width 0.3s ease;
 }
 
+
 .progress-fill.filled {
     background-image: url('images/filledHeart.png'); /* Filled heart image */
 }
+
 
 
 
@@ -96,6 +102,7 @@ body {
     position: relative;
     height: auto;
     min-height: 40px; /* Updated from 40px */
+    line-height: 1.5;
 }
 
 .question p {
@@ -107,7 +114,7 @@ body {
 }
 
 .answers {
-    width: 70%; /* Fixed width of 70% */
+    max-width: 70%;
     margin: 5px auto;
     padding: 5px;
     background-color: #628a22; /* Darker background for a retro look */
@@ -116,14 +123,10 @@ body {
     font-family: 'VideoGameFont', sans-serif; /* Use your pixel font */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Slight shadow for depth */
-    min-height: 100px; /* Ensure consistent minimum height */
-    position: fixed; /* Fixed position relative to the viewport */
-    top: 370px; /* Adjust this value to place the box at the desired vertical position */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Ensure exact centering */
-    z-index: 10; /* Ensure it stays on top of other elements */
+    height: auto; /* Allow the height to grow with content */
+    min-height: 40px; /* Ensure minimum height */
+    line-height: 1.5;
 }
-
 
 .answers label {
     display: flex;
@@ -132,6 +135,7 @@ body {
     margin: 3px 0;
     padding: clamp(3px, 1vw, 8px); /* Responsive padding */
     border: 2px solid #e0e0e0;
+    border-radius: 0; /* No rounded corners */
     cursor: pointer;
     background-color: #6e934d; /* Dark background */
     color: #ffffff; /* White text */
@@ -144,12 +148,6 @@ body {
     line-height: normal;
     word-wrap: break-word;
     min-height: 40.24px;
-    text-align: center; /* Center the text horizontally */
-    line-height: 1.8; /* Remove fixed line height for natural spacing */
-    word-wrap: break-word; /* Ensure l ong words wrap properly */
-    min-height: 40px; /* Minimum height for visual consistency */
-    flex-grow: 1; /* Ensure labels take equal space */
-    font-size: 20px;
 }
 
 .answers label:hover {
@@ -169,23 +167,18 @@ body {
     font-weight: bold;
 }
 
-#replay {
-    display: none;
-    padding: 10px 20px;
-    background-color: #34495e;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
-
-#replay:hover {
-    background-color: #2c3e50;
-}
 
 h1 {
+    font-family: 'VideoGameFont', sans-serif;
+    color: rgb(32, 94, 48);
+    font-size: clamp(1.8em, 3vw, 4.5em);
+    margin: 20px 0 3px 0; /* Increased top margin, decreased bottom margin */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center; /* Changed from right to center */
+}
+
+h2 {
     font-family: 'VideoGameFont', sans-serif;
     color: green;
     font-size: clamp(0.8em, 2vw, 1.5em);
@@ -261,4 +254,94 @@ h1 {
     .question, .answers {
         max-width: 90%;
     }
+}
+
+#previous {
+    padding: 10px 20px;
+    background-color: #34495e;
+    border: 2px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto; /* Center the button horizontally */
+    display: block; /* Make it a block element for centering */
+    font-family: 'VideoGameFont', sans-serif;
+    font-size: 1.1em;
+}
+
+
+#previous:hover {
+    background-color: #2c3e50;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+#previous:active {
+    transform: scale(1); /* Reset scale when button is pressed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow on active */
+}
+
+.action-button {
+    padding: 10px 20px;
+    background-color: #34495e;
+    border: 2px solid #ffcc00; /* Bright yellow border for a retro arcade feel */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Make it a block element for centering */
+    font-family: 'VideoGameFont', sans-serif;
+    font-size: 1.1em;
+}
+
+.action-button:hover {
+    background-color: #ffcc00;
+    color: #2c3e50; /* Matching text color */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+.action-button:active {
+    transform: scale(1); /* Reset scale when button is pressed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow on active */
+}
+
+.action-buttons {
+    display: none;
+}
+
+.action-button {
+    display: inline-block; /* Change from block to inline-block for side-by-side layout */
+    margin-top: 0; /* Remove unnecessary top margin */
+}
+
+#result:not(:empty) + .action-buttons {
+    display: flex; /* Make the buttons visible */
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+}
+
+#replay {
+    background-color: #ffcc00; /* Bright yellow background */
+    border: 2px solid #34495e; /* Dark outline */
+    color: #34495e; /* Matching text color */
+}
+
+#replay:hover {
+    background-color: #2c3e50; /* Dark background on hover */
+    border-color: #ffcc00; /* Bright yellow outline */
+    color: #ffcc00; /* Matching text color */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+#replay:active {
+    transform: scale(1); /* Reset scale when pressed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
 }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>What's Your Personality Type?</h1>
+    <h1>What's Your Perfect Pair?</h1>
     <form id="quiz" onsubmit="event.preventDefault(); showResult();">
         <div class="question">
             <p>1. What is your favorite kind of weather?</p>
@@ -24,7 +24,11 @@
         </div>
     </div>    
     <div id="result"></div>
-    <button id="replay" onclick="resetQuiz()">Play Again</button>
+    <div class="action-buttons">
+        <button id="feedback" onclick="shareResults()" class="action-button">Share Quiz</button>
+        <button id="replay" onclick="resetQuiz()" class="action-button">Play Again</button>
+        <button onclick="openSurvey()" class="action-button">Feedback</button>
+    </div>    
     <button id="previous" onclick="goBack()" style="display: none;">Previous Question</button>
     <script src="main.js"></script>
 </body>
