@@ -137,8 +137,8 @@ body {
     border: 2px solid #e0e0e0;
     border-radius: 0; /* No rounded corners */
     cursor: pointer;
-    background-color: #6e934d; /* Dark background */
-    color: #ffffff; /* White text */
+    background-color: #7DAF2C; /* Dark background */
+    color: #000000; /* White text */
     transition: all 0.3s ease;
     text-transform: uppercase; /* Retro all caps */
     letter-spacing: 1px; /* Slightly spaced letters */
@@ -201,7 +201,7 @@ h2 {
     border: 3px solid #ffcc00; /* Bright border reminiscent of arcade game frames */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     color: #ffcc00; /* Bright yellow text for a retro feel */
     text-shadow: 2px 2px 0px #000; /* Pixel-style text shadow */
     background-image: linear-gradient(135deg, #34495e 25%, #2c3e50 75%); /* Retro gradient background */
@@ -349,61 +349,3 @@ h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
 }
 
-/* Intro Page Container */
-.intro-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)),
-                url('images/background.png') no-repeat center center fixed;
-    background-size: cover;
-}
-
-/* Intro Page Heading */
-.intro-container h1 {
-    font-family: 'VideoGameFont', sans-serif;
-    color: #34495e;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: clamp(3em, 8vw, 6em); /* Large responsive size */
-    margin: 10px 0;
-}
-
-/* Intro Page Subtitle (H2) */
-.intro-container h2 {
-    font-family: 'VideoGameFont', sans-serif;
-    color: #6e934d; /* Complementary color to H1 */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: clamp(1.5em, 4vw, 2.5em); /* Smaller than H1 but still prominent */
-    margin: 5px 0 20px 0; /* Top and bottom spacing for balance */
-}
-
-/* Start Button (Matches Play Again Button) */
-.intro-container .action-button {
-    padding: 15px 30px; /* Larger button size */
-    background-color: #34495e;
-    border: 2px solid #ffcc00; /* Bright yellow border for a retro feel */
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 20px;
-    font-family: 'VideoGameFont', sans-serif;
-    font-size: 1.2em; /* Slightly larger text */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Retro shadow */
-}
-
-.intro-container .action-button:hover {
-    background-color: #ffcc00; /* Yellow hover effect */
-    color: #2c3e50; /* Dark text on hover */
-    transform: scale(1.1); /* Slight zoom effect on hover */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
-}
-
-.intro-container .action-button:active {
-    transform: scale(1); /* Reset scale when button is pressed */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Slightly smaller shadow */
-}
