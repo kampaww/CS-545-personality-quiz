@@ -8,28 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>What's Your Perfect Pair?</h1>
-    <form id="quiz" onsubmit="event.preventDefault(); showResult();">
-        <div class="question">
-            <p>1. What is your favorite kind of weather?</p>
-            <div class="answers">
+    <header>
+        <h1>What's Your Perfect Pair?</h1>
+    </header>
+    
+    <main>
+        <form id="quiz" onsubmit="event.preventDefault(); showResult();">
+            <div class="question">
+                <p>1. What is your favorite kind of weather?</p>
+                <div class="answers">
+                </div>
             </div>
-        </div>
-        <button type="button" id="previous" onclick="goBack()" style="display:none;">Previous Question</button>
-    </form>
-    <div class="progress-container">
-        <div class="progress-text">Question 1 of 5</div>
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
-        </div>
-    </div>    
-    <div id="result"></div>
-    <div class="action-buttons">
-        <button id="feedback" onclick="shareResults()" class="action-button">Share Quiz</button>
-        <button id="replay" onclick="resetQuiz()" class="action-button">Play Again</button>
-        <button onclick="openSurvey()" class="action-button">Feedback</button>
-    </div>    
-    <button id="previous" onclick="goBack()" style="display: none;">Previous Question</button>
+            <button type="button" id="previous" onclick="goBack()" style="display:none;">Previous Question</button>
+        </form>
+        
+        <div class="progress-container">
+            <div class="progress-text">Question 1 of 5</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>    
+        
+        <div id="result"></div>
+        <div class="action-buttons">
+            <button id="feedback" onclick="shareResults()" class="action-button">Share Quiz</button>
+            <button id="replay" onclick="resetQuiz()" class="action-button">Play Again</button>
+            <button onclick="openSurvey()" class="action-button">Feedback</button>
+        </div>    
+        <button id="previous" onclick="goBack()" style="display: none;">Previous Question</button>
+    </main>
+
+    <footer>
+    </footer>
+    
     <script src="main.js"></script>
 </body>
 </html>
