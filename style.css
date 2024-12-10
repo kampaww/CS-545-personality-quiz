@@ -15,7 +15,6 @@ body {
     max-height: 100vh;
 }
 
-
 html, body {
     height: 100%;
     margin: 0;
@@ -79,7 +78,6 @@ body {
 
 
 
-
 .question {
     max-width: 70%; /* Match answers width */
     margin: 10px auto;
@@ -109,7 +107,7 @@ body {
 }
 
 .answers {
-    max-width: 70%;
+    width: 70%; /* Fixed width of 70% */
     margin: 5px auto;
     padding: 5px;
     background-color: #628a22; /* Darker background for a retro look */
@@ -118,9 +116,14 @@ body {
     font-family: 'VideoGameFont', sans-serif; /* Use your pixel font */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Slight shadow for depth */
-    height: auto; /* Allow the height to grow with content */
-    min-height: 40px; /* Ensure minimum height */
+    min-height: 100px; /* Ensure consistent minimum height */
+    position: fixed; /* Fixed position relative to the viewport */
+    top: 370px; /* Adjust this value to place the box at the desired vertical position */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Ensure exact centering */
+    z-index: 10; /* Ensure it stays on top of other elements */
 }
+
 
 .answers label {
     display: flex;
@@ -129,7 +132,6 @@ body {
     margin: 3px 0;
     padding: clamp(3px, 1vw, 8px); /* Responsive padding */
     border: 2px solid #e0e0e0;
-    border-radius: 0; /* No rounded corners */
     cursor: pointer;
     background-color: #6e934d; /* Dark background */
     color: #ffffff; /* White text */
@@ -142,6 +144,12 @@ body {
     line-height: normal;
     word-wrap: break-word;
     min-height: 40.24px;
+    text-align: center; /* Center the text horizontally */
+    line-height: 1.8; /* Remove fixed line height for natural spacing */
+    word-wrap: break-word; /* Ensure l ong words wrap properly */
+    min-height: 40px; /* Minimum height for visual consistency */
+    flex-grow: 1; /* Ensure labels take equal space */
+    font-size: 20px;
 }
 
 .answers label:hover {
