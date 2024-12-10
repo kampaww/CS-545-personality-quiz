@@ -170,9 +170,9 @@ body {
 
 h1 {
     font-family: 'VideoGameFont', sans-serif;
-    color: rgb(32, 94, 48);
+    color: rgb(0, 0, 0);
     font-size: clamp(1.8em, 3vw, 4.5em);
-    margin: 20px 0 3px 0; /* Increased top margin, decreased bottom margin */
+    margin: 100px 0 -1250px 0; /* Increased top margin, decreased bottom margin */
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center; /* Changed from right to center */

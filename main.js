@@ -279,8 +279,10 @@ function selectRandomQuestions() {
 }
 
 function renderState(state) {
-    currentState = state; // Update the current state
-    updateProgress(); // Call updateProgress to adjust the progress bar
+    currentState = state;
+
+    // Update the progress bar on every render
+    updateProgress();
 
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
@@ -290,18 +292,15 @@ function renderState(state) {
     previousButton.style.display = (state > 1) ? 'block' : 'none';
 
     if (state > totalQuestions) {
-        updateProgressBar(totalQuestions + 1); // Update to show 100% completion
         revealResult();
         return;
     }
-
-    updateProgressBar(state);
 
     const questionData = gameData[selectedQuestions[state - 1]];
     question.querySelector('p').textContent = questionData.text;
     answers.innerHTML = '';
 
-    // Update radio button handling
+    // Create radio buttons for each choice
     for (const [choice, info] of Object.entries(questionData.choices)) {
         const label = document.createElement('label');
         const input = document.createElement('input');
@@ -309,25 +308,21 @@ function renderState(state) {
         input.name = `q${state}`;
         input.value = choice;
 
-        // Check if this choice was previously selected
-        if (selectedCategories[state - 1] === info[1]) {
-            input.checked = true;
-        }
-
         label.appendChild(input);
         label.appendChild(document.createTextNode(` ${choice}`));
-        label.appendChild(document.createElement('br'));
 
         input.onclick = () => {
-            selectedCategories[state - 1] = info[1]; // Store selection
-            changeState(state + 1, info[1]);
+            selectedCategories[state - 1] = info[1]; // Store selected categories
+            changeState(state + 1, info[1]); // Advance to next question
         };
 
         answers.appendChild(label);
     }
 }
 
+
 function changeState(newState, selectedCats) {
+    // Increment scores for the selected categories
     selectedCats.forEach(category => {
         if (activityScores[category] !== undefined) {
             activityScores[category]++;
@@ -337,10 +332,17 @@ function changeState(newState, selectedCats) {
         }
     });
 
-    stateStack.push(currentState); // Save current state
-    currentState = newState; // Update to the new state
-    renderState(currentState); // Render the new state
+    // Push current state to the state stack for backtracking
+    stateStack.push(currentState);
+
+    // Update the current state
+    currentState = newState;
+
+    // Re-render the quiz and update the progress bar
+    renderState(currentState);
+    updateProgress(); // Ensure progress updates here
 }
+
 
 function goBack() {
     if (stateStack.length > 0) {
@@ -373,7 +375,12 @@ const activityInterpretations = {
     'Creative': "You’re a chaotic art goblin, turning random ideas into masterpieces."
 };
 function revealResult() {
-    // Determine the top activity and album based on accumulated scores or random selection
+    // Fill the last heart explicitly
+    const progressFill = document.querySelector('.progress-fill');
+    progressFill.style.width = '100%'; // Ensure the progress bar is fully filled
+
+    // Add a delay before showing the results
+    // Determine the top activity and album based on accumulated scores
     const topActivityCategory = getTopCategory(activityScores);
     const topAlbumCategory = getTopCategory(albumScores);
 
@@ -412,7 +419,8 @@ function revealResult() {
     document.getElementById("replay").style.display = "block";
     document.getElementById("quiz").style.display = "none";
     document.querySelector('.progress-container').style.display = 'none'; // Ensure the progress bar is hidden on result display
-}
+};
+
 
 function openSurvey() {
     window.open('https://forms.gle/uZw9fD8WPARJ3zLa7', '_blank');
@@ -498,18 +506,28 @@ let progressText = document.querySelector('.progress-text');
 let numHearts = 10;
 
 function updateProgress() {
-    const progressPercentage = Math.round(((currentState - 1) / totalQuestions) * 100); // Calculate progress dynamically
-    const filledHearts = Math.round((progressPercentage / 100) * numHearts);
-    const heartWidth = 100 / numHearts; 
+    // Calculate the percentage progress directly from currentState
+    const progressPercentage = ((currentState - 1) / totalQuestions) * 100;
 
-    progressFill.style.width = `${filledHearts * heartWidth}%`; 
+    // Number of hearts filled, clamped to [1, numHearts]
+    const filledHearts = Math.ceil((currentState / totalQuestions) * numHearts);
 
+    // Update progress bar width
+    progressFill.style.width = `${(filledHearts / numHearts) * 100}%`;
+
+    // Ensure hearts are marked as filled only if necessary
     if (filledHearts > 0) {
-        progressFill.classList.add('filled'); 
+        progressFill.classList.add('filled');
     } else {
-        progressFill.classList.remove('filled'); 
+        progressFill.classList.remove('filled');
     }
+
+    // Update the text to reflect the current question
+    progressText.textContent = `Question ${Math.min(currentState, totalQuestions)} of ${totalQuestions}`;
 }
+
+
+
 
 function advanceProgress() {
     if (currentState <= totalQuestions) {
