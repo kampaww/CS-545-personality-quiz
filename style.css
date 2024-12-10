@@ -180,13 +180,13 @@ h1 {
 
 h2 {
     font-family: 'VideoGameFont', sans-serif;
-    color: green;
+    color: #FFDBF7;
     font-size: clamp(0.8em, 2vw, 1.5em);
     margin: 20px 0 3px 0; /* Increased top margin, decreased bottom margin */
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: left; /* Ensures text is left-aligned */
-    padding: 0; /* Remove any padding */
+    padding: 2; /* Remove any padding */
 }
 
 
@@ -202,9 +202,8 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    color: #ffcc00; /* Bright yellow text for a retro feel */
+    color: #FFDF61; /* Bright yellow text for a retro feel */
     text-shadow: 2px 2px 0px #000; /* Pixel-style text shadow */
-    background-image: linear-gradient(135deg, #34495e 25%, #2c3e50 75%); /* Retro gradient background */
 }
 
 .cardContents {
@@ -236,12 +235,12 @@ h2 {
 }
 
 .infoSection h3 {
-    color: #34495e;
-    margin-top: 0;
+    color: #FFDBF7;
+    margin-top: 50px;
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
 }
 
 .infoSection p {
@@ -364,7 +363,7 @@ h2 {
 /* Intro Page Heading */
 .intro-container h1 {
     font-family: 'VideoGameFont', sans-serif;
-    color: #34495e;
+    color: #ffcc00;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: clamp(3em, 8vw, 6em); /* Large responsive size */
@@ -374,7 +373,7 @@ h2 {
 /* Intro Page Subtitle (H2) */
 .intro-container h2 {
     font-family: 'VideoGameFont', sans-serif;
-    color: #6e934d; /* Complementary color to H1 */
+    color: #ffb8f0; /* Complementary color to H1 */
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: clamp(1.5em, 4vw, 2.5em); /* Smaller than H1 but still prominent */
