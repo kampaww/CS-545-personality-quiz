@@ -48,7 +48,6 @@ const albumURLs = {
     "boy - 2hollis": "https://media.pitchfork.com/photos/66686f6174b2a7f0a31e0db5/1:1/w_450%2Cc_limit/2hollis%2520-%2520boy.jpeg"
 };
 
-
 const gameData = {
     "1": {
         "text": "Which would you rather be? ",
@@ -232,12 +231,12 @@ const gameData = {
     }
 };
 
-const totalQuestions = 10; // Number of questions to display per quiz
-let selectedCategories = []; // Add this to track selected categories
+const totalQuestions = 10;
+let selectedCategories = [];
 let currentState = 1;
 let activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
 let albumScores = { "Pop": 0, "Hip-Hop / Rap": 0, "R&B": 0, "Indie Pop / Alternative": 0, "Classical": 0, "Country": 0, "K-Pop": 0, "Dance / Electronic": 0 };
-let selectedQuestions = []; // Array to store randomly selected question IDs
+let selectedQuestions = [];
 let stateStack = [];
 let selectedActivities = [];
 let selectedAlbums = [];
@@ -254,11 +253,9 @@ function updateProgressBar(state) {
     const progressFill = document.querySelector('.progress-fill');
     const progressText = document.querySelector('.progress-text');
     
-    // Ensure state doesn't exceed totalQuestions
     const currentQuestion = Math.min(state, totalQuestions);
     const progressPercentage = ((currentQuestion - 1) / totalQuestions) * 100;
 
-    // On last question completion, show 100%
     if (state > totalQuestions) {
         progressFill.style.width = '100%';
         progressText.textContent = `Question ${totalQuestions} of ${totalQuestions}`;
@@ -272,21 +269,18 @@ function updateProgressBar(state) {
 
 function selectRandomQuestions() {
     const keys = Object.keys(gameData);
-    const shuffled = keys.sort(() => Math.random() - 0.5); // Shuffle questions
-    selectedQuestions = shuffled.slice(0, totalQuestions); // Pick the first 10
+    const shuffled = keys.sort(() => Math.random() - 0.5);
+    selectedQuestions = shuffled.slice(0, totalQuestions);
 }
 
 function renderState(state) {
     currentState = state;
 
-    // Update the progress bar on every render
     updateProgress();
 
     const question = document.querySelector('.question');
     const answers = document.querySelector('.answers');
     const previousButton = document.getElementById('previous');
-
-    // Show/hide previous button based on state
     previousButton.style.display = (state > 1) ? 'block' : 'none';
 
     if (state > totalQuestions) {
@@ -298,7 +292,6 @@ function renderState(state) {
     question.querySelector('p').textContent = questionData.text;
     answers.innerHTML = '';
 
-    // Create radio buttons for each choice
     for (const [choice, info] of Object.entries(questionData.choices)) {
         const label = document.createElement('label');
         const input = document.createElement('input');
@@ -310,17 +303,15 @@ function renderState(state) {
         label.appendChild(document.createTextNode(` ${choice}`));
 
         input.onclick = () => {
-            selectedCategories[state - 1] = info[1]; // Store selected categories
-            changeState(state + 1, info[1]); // Advance to next question
+            selectedCategories[state - 1] = info[1];
+            changeState(state + 1, info[1]);
         };
 
         answers.appendChild(label);
     }
 }
 
-
 function changeState(newState, selectedCats) {
-    // Increment scores for the selected categories
     selectedCats.forEach(category => {
         if (activityScores[category] !== undefined) {
             activityScores[category]++;
@@ -330,16 +321,11 @@ function changeState(newState, selectedCats) {
         }
     });
 
-    // Push current state to the state stack for backtracking
     stateStack.push(currentState);
-
     currentState = newState;
-
-    // Re-render the quiz
     renderState(currentState);
-    updateProgress(); // progress update
+    updateProgress();
 }
-
 
 function goBack() {
     if (stateStack.length > 0) {
@@ -365,32 +351,31 @@ const genreDescriptions = {
     'K-Pop': "Anthems so hype, you’ll stan yourself by the end of the day.",
     'Dance / Electronic': "Electric bangers for dancing like no one’s watching (but everyone is)."
 };
+
 const activityInterpretations = {
     'Media-based': "You turn couch time into an Olympic sport. Gold medal, incoming.",
     'Outdoorsy': "You’re one with nature—basically a cool, adventurous squirrel.",
     'Calm': "You’re chill AF. If zen was a currency, you’d be a billionaire.",
     'Creative': "You’re a chaotic art goblin, turning random ideas into masterpieces."
 };
-function revealResult() {
-    // fill the last heart explicitly
-    const progressFill = document.querySelector('.progress-fill');
-    progressFill.style.width = '100%'; // Ensure the progress bar is fully filled
 
-    // top activity and album based on accumulated scores
+function revealResult() {
+    const progressFill = document.querySelector('.progress-fill');
+    progressFill.style.width = '100%';
+
     const topActivityCategory = getTopCategory(activityScores);
     const topAlbumCategory = getTopCategory(albumScores);
 
     const activityRecommendation = getRandomItem(activityGroups[topActivityCategory]);
     const albumRecommendation = getRandomItem(albumGroups[topAlbumCategory]);
+    
     const albumDetails = albumRecommendation.split(" - ");
     const artist = albumDetails.length > 1 ? albumDetails[1] : "Unknown Artist";
     const albumImageUrl = albumURLs[albumRecommendation];
 
-    // activity and genre descriptions
     const activityDesc = activityDescriptions[topActivityCategory] || "Enjoy ";
     const genreDesc = genreDescriptions[topAlbumCategory] || "listening to ";
 
-    // html for results
     const resultHTML = `
         <div id="idCard">
             <h2>Your Perfect Pair:</h2>
@@ -414,9 +399,8 @@ function revealResult() {
     document.getElementById("result").innerHTML = resultHTML;
     document.getElementById("replay").style.display = "block";
     document.getElementById("quiz").style.display = "none";
-    document.querySelector('.progress-container').style.display = 'none'; // Ensure the progress bar is hidden on result display
+    document.querySelector('.progress-container').style.display = 'none';
 };
-
 
 function openSurvey() {
     window.open('https://forms.gle/uZw9fD8WPARJ3zLa7', '_blank');
@@ -452,6 +436,7 @@ function shareResults() {
        setTimeout(() => popup.remove(), 300);
     }, 1200);
 }
+
 function resetQuiz() {
     currentState = 1;
     activityScores = { "Media-based": 0, "Outdoorsy": 0, "Calm": 0, "Creative": 0 };
@@ -459,16 +444,14 @@ function resetQuiz() {
     document.getElementById("result").innerHTML = '';
     document.getElementById("replay").style.display = "none";
     document.getElementById("quiz").style.display = "block";
-    document.querySelector('.progress-container').style.display = 'block'; // Show the progress bar again
-    selectRandomQuestions(); // Reselect random questions for a new quiz iteration
-    renderState(currentState); // Render the first state/question
+    document.querySelector('.progress-container').style.display = 'block';
+    selectRandomQuestions();
+    renderState(currentState);
 }
 
 function goBack() {
     if (currentState > 1) {
-        // Remove the last selection
         selectedCategories.pop();
-        // Reset scores for the previous question
         const lastCategories = selectedCategories[currentState - 2];
         if (lastCategories) {
             lastCategories.forEach(category => {
@@ -485,50 +468,39 @@ function goBack() {
     }
 }
 
-// Function to initialize the quiz and set up progress bar
 window.onload = () => {
     progress = 0;
-    selectRandomQuestions(); // Initialize the quiz with a random selection of questions
-    renderState(currentState); // Start the quiz
-    updateProgress(); // Initialize the progress bar
+    selectRandomQuestions();
+    renderState(currentState);
+    updateProgress();
 };
 
-// Progress Bar Functionality
 let progress = 0;
-
 let progressFill = document.querySelector('.progress-fill');
 let progressText = document.querySelector('.progress-text');
 
 let numHearts = 10;
 
 function updateProgress() {
-    // Calculate the percentage progress directly from currentState
     const progressPercentage = ((currentState - 1) / totalQuestions) * 100;
 
-    // Number of hearts filled, clamped to [1, numHearts]
     const filledHearts = Math.ceil((currentState / totalQuestions) * numHearts);
     progressFill.style.width = `${(filledHearts / numHearts) * 100}%`;
 
-    // Ensure hearts are marked as filled only if needed
     if (filledHearts > 0) {
         progressFill.classList.add('filled');
     } else {
         progressFill.classList.remove('filled');
     }
 
-    // Update the text to reflect the current question
     progressText.textContent = `Question ${Math.min(currentState, totalQuestions)} of ${totalQuestions}`;
 }
 
-
-
-
 function advanceProgress() {
     if (currentState <= totalQuestions) {
-        updateProgress(); // Ensure progress updates dynamically
+        updateProgress();
     }
 }
 
 updateProgress();  
-
 advanceProgress();
